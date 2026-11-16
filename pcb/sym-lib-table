@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "WSNES_Proto")(type "KiCad")(uri "${KIPRJMOD}/lib/WSNES_Proto.kicad_sym")(options "")(descr "WSNES project symbols"))
+)

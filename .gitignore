@@ -1,0 +1,21 @@
+# KiCad: local view state, autosaves, backups, caches, lock files
+*.kicad_prl
+_autosave-*
+*-backups/
+fp-info-cache
+*.lck
+\#auto_saved_files\#
+
+# Generated intermediates (gen_pcb.py writes the netlist next to the project)
+pcb/*.net
+
+# Scratch files from the KiCad freerouting plugin.
+# The canonical routing input is pcb/freerouting/WSNES_Proto.dsn.
+pcb/freerouting.dsn
+pcb/temp-freerouting.dsn
+pcb/freerouting.rules
+pcb/freerouting.ses
+
+# Python
+__pycache__/
+*.pyc
