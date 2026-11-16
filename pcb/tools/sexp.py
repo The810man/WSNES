@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Copyright 2026 The810man
 """Minimal KiCad S-expression parser/writer + symbol library helpers."""
 import re
 

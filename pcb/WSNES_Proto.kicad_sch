@@ -11,6 +11,7 @@
 		(company "WSNES project")
 		(comment 1 "ESP32-S3-WROOM-1 + 512 KB ROM-SRAM + battery save RAM, LoROM, 5 V core, standard SNES PCB outline")
 		(comment 2 "Generated: tools/gen_project.py + tools/design.py")
+		(comment 3 "Copyright 2026 The810man - CC BY-NC-SA 4.0, no commercial use without permission")
 	)
 	(lib_symbols
 		(symbol "WSNES_Proto:SNES_Cart_Edge"

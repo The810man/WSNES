@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Copyright 2026 The810man
 """Build WSNES_Proto.kicad_pcb: standard SNES PCB outline, 4 layers, placed footprints, nets, planes.
 
 Usage: python3 gen_pcb.py <project_dir>

@@ -7,6 +7,13 @@
 		(legacy_teardrops no)
 	)
 	(paper "A4")
+	(title_block
+		(title "WSNES Flashcart - Cart v0.3 (mixed SMD/THT)")
+		(date "2026-11-16")
+		(rev "0.3")
+		(company "WSNES project")
+		(comment 1 "Copyright 2026 The810man - CC BY-NC-SA 4.0, no commercial use without permission")
+	)
 	(layers
 		(0 "F.Cu" signal)
 		(4 "In1.Cu" signal)

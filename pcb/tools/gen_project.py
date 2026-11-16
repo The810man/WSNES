@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Copyright 2026 The810man
 """Generate the WSNES THT prototype KiCad 9 project (libraries + schematic) from design.py.
 
 Usage: python3 gen_project.py <project_dir>
@@ -345,7 +347,8 @@ def main(proj_dir):
             ['title_block', ['title', Q('WSNES Flashcart - Cart v0.3 (mixed SMD/THT)')], ['date', Q('2026-11-16')],
              ['rev', Q('0.3')], ['company', Q('WSNES project')],
              ['comment', 1, Q('ESP32-S3-WROOM-1 + 512 KB ROM-SRAM + battery save RAM, LoROM, 5 V core, standard SNES PCB outline')],
-             ['comment', 2, Q('Generated: tools/gen_project.py + tools/design.py')]],
+             ['comment', 2, Q('Generated: tools/gen_project.py + tools/design.py')],
+             ['comment', 3, Q('Copyright 2026 The810man - CC BY-NC-SA 4.0, no commercial use without permission')]],
             ['lib_symbols'] + list(sch.libsyms.values())]
     root += sch.items
     root += [['sheet_instances', ['path', Q('/'), ['page', Q('1')]]], ['embedded_fonts', 'no']]

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Copyright 2026 The810man
 """WSNES cart v0.3 (mixed SMD/THT, fits the standard SNES PCB outline) — single source of truth.
 
 Every part lists its connections as {pin_number: net}. Special nets:

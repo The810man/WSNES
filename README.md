@@ -28,9 +28,12 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 │   └── production/         full BOM + JLCPCB assembly files (BOM, CPL)
 ├── cad/
 │   └── WSNES_Proto.step    3D model of the board, for designing the housing
-└── docs/
-    ├── WSNES_Proto_schematic.pdf   schematic incl. bus map, GPIO map, firmware flow
-    └── masterplan.md               original architecture notes (German, historical)
+├── docs/
+│   ├── WSNES_Proto_schematic.pdf   schematic incl. bus map, GPIO map, firmware flow
+│   └── masterplan.md               original architecture notes (German, historical)
+├── LICENSES/               full licence texts
+├── LICENSE.md              which licence covers what
+└── CONTRIBUTING.md         terms for contributions
 ```
 
 Start with [`pcb/README.md`](pcb/README.md) for the hardware.
@@ -48,3 +51,12 @@ These projects were studied while designing WSNES. None of their files are inclu
 - [mrehkopf/sd2snes](https://github.com/mrehkopf/sd2snes): FPGA-based SNES flashcart
 - [soniccd123/SNES-FeRAM-Cart](https://github.com/soniccd123/SNES-FeRAM-Cart): SNES cart with modern 3.3 V memory
 - [MouseBiteLabs/Super-Nintendo-Cartridges](https://github.com/MouseBiteLabs/Super-Nintendo-Cartridges): open SNES cartridge PCBs
+
+## Licence
+
+WSNES is free for non-commercial use: you can build, modify and share it, but selling it needs my permission.
+
+- Hardware and docs: [CC BY-NC-SA 4.0](LICENSES/CC-BY-NC-SA-4.0.txt)
+- Code: [PolyForm Noncommercial 1.0.0](LICENSES/PolyForm-Noncommercial-1.0.0.md)
+
+See [LICENSE.md](LICENSE.md) for what counts as non-commercial, and [CONTRIBUTING.md](CONTRIBUTING.md) before sending changes.

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Copyright 2026 The810man
 """Compare a KiCad netlist export against tools/intended_pins.json (written by gen_project.py)."""
 import json, re, sys, collections
 net_file, intended_file = sys.argv[1], sys.argv[2]
