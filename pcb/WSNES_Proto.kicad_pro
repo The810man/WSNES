@@ -371,7 +371,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../cad/WSNES.step",
+      "step": "../cad/WSNES.stl",
       "svg": "",
       "vrml": ""
     },

@@ -26,6 +26,9 @@ NOTES = {
     'C1350086': 'not stocked at LCSC on 2026-11-17: JLC parts pre-order / Global Sourcing, or hand-solder (SOP-32)',
     'C1351203': 'not stocked at LCSC on 2026-11-17: JLC parts pre-order / Global Sourcing, or hand-solder (SOP-32). '
                 'Keep a 2.7-5.5 V part: it runs from VSAVE behind the BAT54C',
+    'C2953613': 'replaces the out-of-stock AS6C1008-55SIN (C1351203); same pinout and 450-mil SOP-32. '
+                'Rated 4.5-5.5 V but VSAVE is ~0.35 V below +5V (BAT54C), so it is only in spec with >= 4.9 V from the console. '
+                'Data retention from 2.0 V (CR2032 is fine). Prefer the AS6C1008 (2.7-5.5 V) when stocked',
     'C547409': 'not stocked at LCSC on 2026-11-17: JLC parts pre-order / Global Sourcing, or hand-solder (TSSOP-16). '
                'Must stay HCT (CP and /PL are 3.3 V signals)',
     'C221896': 'replaces the out-of-stock PTS810SJM (1.6 N); same footprint, 2.6 N',

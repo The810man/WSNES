@@ -14,12 +14,14 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 
 ## Status
 
-**Latest release: v0.3.1 (2026-11-17).** See [CHANGELOG.md](CHANGELOG.md).
+**Latest release: [v0.3.2](https://github.com/The810man/WSNES/releases/tag/v0.3.2) (2026-11-17)**, with the gerbers and JLC files as release downloads. See [CHANGELOG.md](CHANGELOG.md).
 
 | Part | State |
 | --- | --- |
 | Hardware v0.3 | Schematic done (ERC: 0 errors), all 90 parts placed, **fully routed, DRC clean** (KiCad 10.0.8: 0 errors, 0 unconnected, parity 0) |
-| Production review | [2026-11-17](docs/reviews/2026-11-17_production-review.md): the tab-copper blocker and the missing USB ESD are **fixed and verified**. Still open before ordering: 9 ICs without a JLC listing, plus two bench checks. See [`pcb/README.md`](pcb/README.md#before-ordering). |
+| Production review | [2026-11-17](docs/reviews/2026-11-17_production-review.md): the tab-copper blocker and the missing USB ESD are **fixed and verified**. Every JLC line has an LCSC number. U1 and U13 were out of stock on 2026-11-17, and two bench checks are still open. See [`pcb/README.md`](pcb/README.md#before-ordering). |
+| Production files | Gerbers in `pcb/production/jlc/`. JLC assembly as the full variant (`jlc/`) or the cheap prototype variant (`jlc-cheap/`, with a self-buy list) |
+| Hardware v0.4 | In progress: clean In1 GND plane, USB routed as a pair, series resistors on the shift-register clock and latch |
 | Housing | First draft: `cad/Cardridge.FCStd` (FreeCAD) |
 | Firmware | Not in this repo yet |
 
@@ -32,7 +34,7 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 │   ├── lib/                project symbols + footprints (cart edge drawn from scratch), vendor 3D models
 │   ├── tools/              Python generators; design.py is the design table
 │   ├── freerouting/        Specctra DSN for the autorouter
-│   └── production/         full BOM + JLCPCB assembly files (BOM, CPL)
+│   └── production/         full BOM, gerbers + JLCPCB assembly files (jlc/), cheap variant (jlc-cheap/)
 ├── cad/
 │   ├── Cardridge.FCStd     first housing draft (FreeCAD)
 │   ├── WSNES.step / .stl   latest KiCad 3D export of the board with all parts

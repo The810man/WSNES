@@ -27,3 +27,11 @@ __pycache__/
 # Datasheet PDFs are third-party content and are fetched locally on demand.
 # Analyzer output in analysis/ is filtered by analysis/.gitignore.
 pcb/datasheets/
+
+# FreeCAD backups
+*.FCBak
+
+# Loose gerber/drill exports; the release set is pcb/production/jlc/*_gerbers.zip
+pcb/*.gbr
+pcb/*.drl
+pcb/*.gbrjob

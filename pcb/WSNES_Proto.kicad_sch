@@ -26198,7 +26198,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Value" "AS6C1008-55SIN (save, 32K used)"
+		(property "Value" "CY62128ELL-45SXI (save, 32K used)"
 			(at 86.36 385.44 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26211,28 +26211,28 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C1008_Mar_2023V1.2.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/da1a1ce58aea5fb275cb492340aa2d52.pdf?productCode=C2953613"
 			(at 83.82 408.94 0)
 			(effects
 				(font (size 1.27 1.27))
 				(hide yes)
 			)
 		)
-		(property "MPN" "AS6C1008-55SIN"
+		(property "MPN" "CY62128ELL-45SXI"
 			(at 83.82 408.94 0)
 			(effects
 				(font (size 1.27 1.27))
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Alliance Memory"
+		(property "Manufacturer" "Infineon (Cypress)"
 			(at 83.82 408.94 0)
 			(effects
 				(font (size 1.27 1.27))
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1351203"
+		(property "LCSC" "C2953613"
 			(at 83.82 408.94 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -31985,7 +31985,7 @@
 		)
 		(uuid "fdb64a63-674c-5a23-a6b8-406731ffd6ca")
 	)
-	(text "Save RAM: AS6C1008 at LoROM $70-$7D/$F0-$FF:0000-7FFF, CR2032 backed, write-protected below 4.4 V"
+	(text "Save RAM: CY62128E at LoROM $70-$7D/$F0-$FF:0000-7FFF, CR2032 backed, write-protected below 4.4 V"
 		(exclude_from_sim no)
 		(at 20.32 345.44 0)
 		(effects
