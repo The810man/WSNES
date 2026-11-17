@@ -32,7 +32,7 @@
 "U13","74HCT165","Package_SO:TSSOP-16_4.4x5mm_P0.65mm","Nexperia","74HCT165PW,118","C547409","JLC","1","not stocked at LCSC on 2026-11-17: JLC parts pre-order / Global Sourcing, or hand-solder (TSSOP-16). Must stay HCT (CP and /PL are 3.3 V signals)"
 "U14","CD74HC4050","Package_SO:TSSOP-16_4.4x5mm_P0.65mm","Texas Instruments","CD74HC4050PWR","C352825","JLC","1",""
 "U15","PIC12F629 (SuperCIC key)","Package_DIP:DIP-8_W7.62mm","Microchip","PIC12F629-I/P","C9785","HAND","1",""
-"U16","AS6C1008-55SIN (save, 32K used)","Package_SO:SOP-32_11.305x20.495mm_P1.27mm","Alliance Memory","AS6C1008-55SIN","C1351203","JLC","1","not stocked at LCSC on 2026-11-17: JLC parts pre-order / Global Sourcing, or hand-solder (SOP-32). Keep a 2.7-5.5 V part: it runs from VSAVE behind the BAT54C"
+"U16","CY62128ELL-45SXI (save, 32K used)","Package_SO:SOP-32_11.305x20.495mm_P1.27mm","Infineon (Cypress)","CY62128ELL-45SXI","C2953613","JLC","1","replaces the out-of-stock AS6C1008-55SIN (C1351203); same pinout and 450-mil SOP-32. Rated 4.5-5.5 V but VSAVE is ~0.35 V below +5V (BAT54C), so it is only in spec with >= 4.9 V from the console. Data retention from 2.0 V (CR2032 is fine). Prefer the AS6C1008 (2.7-5.5 V) when stocked"
 "U17","74HCT138","Package_SO:TSSOP-16_4.4x5mm_P0.65mm","Texas Instruments","SN74HCT138PWR","C8115","JLC","1",""
 "U18,U19","74HCT08","Package_SO:TSSOP-14_4.4x5mm_P0.65mm","Texas Instruments","SN74HCT08PWR","C8181","JLC","2",""
 "U20","MCP100-450","Package_TO_SOT_SMD:SOT-23","Microchip","MCP100T-450I/TT","C134467","JLC","1",""

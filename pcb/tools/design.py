@@ -233,9 +233,9 @@ part('U19', '74xx', '74LS08', '74HCT08', FP_TSSOP14, None,
 save_addr = {12: 'SA0', 11: 'SA1', 10: 'SA2', 9: 'SA3', 8: 'SA4', 7: 'SA5', 6: 'SA6', 5: 'SA7',
              27: 'SA8', 26: 'SA9', 23: 'SA10', 25: 'SV_A11', 4: 'SV_A12', 28: 'SV_A13', 3: 'SV_A14',
              31: 'GND', 2: 'GND', 1: None}
-part('U16', 'Memory_RAM', 'AS6C1008-xxP', 'AS6C1008-55SIN (save, 32K used)', FP_SOP32,
+part('U16', 'Memory_RAM', 'AS6C1008-xxP', 'CY62128ELL-45SXI (save, 32K used)', FP_SOP32,
      (83.82, 408.94), {**save_addr, **sram_data, 22: 'SAVE_CE_N', 30: 'SAVE_CE2', 24: 'SRAM_OE_N',
-                       29: 'SRAM_WE_N', 32: 'VSAVE', 16: 'GND'}, mpn='AS6C1008-55SIN')
+                       29: 'SRAM_WE_N', 32: 'VSAVE', 16: 'GND'}, mpn='CY62128ELL-45SXI')
 part('U20', 'Power_Supervisor', 'MCP100-450D', 'MCP100-450', FP_SOT23, (172.72, 462.28),
      {1: 'PWR_OK', 2: '+5V', 3: 'GND'}, mpn='MCP100T-450I/TT')
 part('R6', 'Device', 'R', '1k', FP_R, (198.12, 462.28), {1: 'PWR_OK', 2: 'SAVE_CE2'})
@@ -265,10 +265,13 @@ for i, ic in enumerate(dec):
 # (manufacturer, MPN, LCSC part number). LCSC numbers were looked up and their package checked against
 # the LCSC catalogue; pinouts of every substitute were checked against the maker's datasheet.
 # Not stocked at LCSC on 2026-11-17 (use JLC parts pre-order / Global Sourcing, or hand-solder):
-#   U1 AS6C4008-55SIN, U16 AS6C1008-55SIN, U13 74HCT165PW,118.
+#   U1 AS6C4008-55SIN, U13 74HCT165PW,118.
+# U16 moved on 2026-11-17 from AS6C1008-55SIN (C1351203, 2.7-5.5 V, out of stock) to the in-stock CY62128ELL-45SXI:
+# same JEDEC pinout and 450-mil SOIC-32, but 4.5-5.5 V. VSAVE sits one BAT54C drop below +5V, so it is only in
+# spec while the console delivers about 4.9 V or more. Go back to the AS6C1008 when it is stocked again.
 SOURCING = {
     'U1': ('Alliance Memory', 'AS6C4008-55SIN', 'C1350086'),
-    'U16': ('Alliance Memory', 'AS6C1008-55SIN', 'C1351203'),   # 2.7-5.5 V: needed behind the BAT54C
+    'U16': ('Infineon (Cypress)', 'CY62128ELL-45SXI', 'C2953613'),   # 4.5-5.5 V, see note above
     'U2': ('Nexperia', '74AHCT541PW,118', 'C84548'),
     'U3': ('Nexperia', '74AHCT541PW,118', 'C84548'),
     'U4': ('Nexperia', '74AHCT541PW,118', 'C84548'),
