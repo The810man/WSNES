@@ -12,6 +12,7 @@ v0.3 fits the standard SNES cartridge PCB outline: 112.2 × 66.7 mm plus the 11.
 | Routing input | `freerouting/WSNES_Proto.dsn` (inner planes only, see below) |
 | JLC assembly | `production/jlc/WSNES_BOM_JLC.csv` + `production/jlc/WSNES_CPL_JLC.csv` (only the parts JLC solders) |
 | Full BOM | `production/WSNES_Proto_BOM.csv` (the `Assembly` column says who solders what) |
+| Cheap prototype | `production/jlc-cheap/`: same gerbers, smaller JLC bill. JLC leaves off U1, U13, SW1, SW2 and U23, and the LEDs are all red basic parts. Includes a self-buy list. See its README. |
 | 3D model | `../cad/WSNES_Proto.step` and `../cad/WSNES_Proto.stl` (every part has a model), for designing the housing |
 | Schematic PDF | `../docs/WSNES_Proto_schematic.pdf` |
 
@@ -91,11 +92,13 @@ The new `.dsn` contains only the inner planes. GND, +5V and +3V3 just need a via
    - gold fingers with **45° bevel**
    - assembly: top side, using the two files in `production/jlc/`
 
-The JLC BOM has a verified `LCSC Part #` on 26 of its 35 lines (see [Before ordering](#before-ordering) for the 9 without). Check part rotations in JLC's placement preview; SOT-23 / SOT-23-5 / SOT-23-6 parts often need 180°.
+Every line of the JLC BOM has an `LCSC Part #`. See [Before ordering](#before-ordering) for the parts that were out of stock. Check part rotations in JLC's placement preview; SOT-23 / SOT-23-5 / SOT-23-6 parts often need 180°.
 
 ## Save RAM (unchanged from v0.2)
 
-- U16 AS6C1008 is battery-backed and mapped to LoROM `$70-$7D:0000-7FFF`.
+- U16 is battery-backed and mapped to LoROM `$70-$7D:0000-7FFF`.
+  - Since 2026-11-17 it is a CY62128ELL-45SXI (`C2953613`), because the AS6C1008-55SIN was out of stock. Same pinout and SOP-32 footprint.
+  - The CY62128E is rated 4.5–5.5 V, but VSAVE is one BAT54C drop (≈ 0.35 V) below +5V, so it is only in spec while the console delivers about 4.9 V or more. Go back to the AS6C1008 (2.7–5.5 V) when it is in stock.
 - U17 74HCT138 decodes the save area.
 - U19 masks the size to match the ROM header.
 - U20 MCP100 blocks writes below about 4.4 V.
@@ -108,17 +111,14 @@ The production review of 2026-11-17 ([`../docs/reviews/2026-11-17_production-rev
 
 - **Tab copper: fixed and verified.** The zones are refilled and the KiCad 10 DRC is clean. Measured on the refilled board, no copper is left between the fingers or within 1 mm of the bevelled tip, on any layer. See [DRC status](#drc-status).
 - **USB ESD: added.** U23 USBLC6-2SC6 sits next to J5 and is routed.
-- **LCSC part numbers: 26 of 35 lines filled.** These 9 ICs have no JLC listing in their family and package, so order them through JLC Global Sourcing, consign them, or hand-solder them:
-  - U1 AS6C4008-55SIN and U16 AS6C1008-55SIN (SOP-32)
-  - U13 74HCT165PW, U14 CD74HC4050PWR, U17 74HCT138PW, U8 74HCT157PW (TSSOP-16)
-  - U2–U4 74AHCT541PW, U5 74AHCT245PW (TSSOP-20)
-  - U7 74HCT32PW (TSSOP-14)
-
-  HCT drop-ins exist for the '541 (SN74HCT541PWR, C436096) and the '245 (74HCT245PW, C52140501), but they are slower than AHCT.
+- **LCSC part numbers: all 35 JLC lines filled.** Stock checked on 2026-11-17:
+  - U1 AS6C4008-55SIN and U13 74HCT165PW are out of stock at LCSC and JLC. Use JLC Global Sourcing, or buy them yourself and hand-solder them (SOP-32 and TSSOP-16). The cheap variant in `production/jlc-cheap/` already leaves them off.
+  - U16 is now the in-stock CY62128ELL-45SXI instead of the AS6C1008-55SIN. See [Save RAM](#save-ram-unchanged-from-v02).
+  - JLC's parts page has the final word on stock. Check it before you order.
 - **Still open, bench checks:**
   - Edge pinout: check continuity against an original cart. The finger at x = 177.5 (pin 5/36) must be GND on the same face.
   - Console /RESET driver: Q1 pulls pin 26 low by default. Measure whether the console drives that line push-pull before relying on it.
-- **Gerbers:** a test export from KiCad 10.0.8 passed the gerber check (all layers present and aligned, 112.3 × 77.9 mm, 437 vias, one 0.15 mm drill). Export the final set for the order.
+- **Gerbers:** the final set is `production/jlc/WSNES_Proto_v0.3_gerbers.zip` (KiCad 10.0.8, 2026-11-17: 4 layers, 112.3 × 77.9 mm, one 0.15 mm drill). It matches a fresh export of the committed board.
 
 Notes from before the review:
 
