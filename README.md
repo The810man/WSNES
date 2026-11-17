@@ -2,7 +2,7 @@
 
 AI NOTICE: Hey so i use claude code for making my commits cleaner sometimes, also for release taggin. Code, pcb and CAD is hand made but also enhanced via mcp tools (for example checking routing and fixing issues like via placement etc.). Agentic workflows used for documentation and versioning.
 
-![WSNES LOGO](./docs/images/wsnes-inverse.svg)
+![WSNES LOGO](./docs/images/wsnes-inverse-2048.png)
 
 WSNES is a SNES flash cartridge built around an **ESP32-S3** and parallel SRAM:
 
