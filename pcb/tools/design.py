@@ -165,7 +165,7 @@ esp = {1: 'GND', 40: 'GND', 41: 'GND', 2: '+3V3', 3: 'ESP_EN',
        4: 'BUS_ESP', 5: 'ESP_WE_N', 6: 'ESP_OE_N', 7: 'DOUT_OE_N',              # IO4..IO7
        8: 'RD_LOAD_N', 9: 'MENU_WE_N', 10: 'SNES_RST_DRV', 11: 'MBX_IRQ_N',    # IO15..IO18
        12: 'RESET_SENSE_N', 13: 'USB_DN', 14: 'USB_DP', 15: None, 16: None,   # IO8, D-, D+, IO3, IO46
-       17: 'SNES_5V_SENSE', 18: 'SR_LATCH', 19: 'SR_MOSI', 20: 'SR_SCK',        # IO9..IO12
+       17: 'SNES_5V_SENSE', 18: 'SR_LATCH_ESP', 19: 'SR_MOSI', 20: 'SR_SCK_ESP',  # IO9..IO12
        21: 'SR_MISO', 22: 'SAVE_M11', 23: 'SAVE_EN', 24: 'SAVE_M12',            # IO13, IO14, IO21, IO47
        25: 'ESP_LED', 26: None, 27: 'ESP_BOOT', 28: None, 29: None, 30: None,   # IO48, IO45, IO0, IO35-37 (PSRAM)
        31: 'SD_CD_N', 32: 'SAVE_M13', 33: 'SAVE_M14', 34: 'SD_MISO',            # IO38..IO41
@@ -180,6 +180,10 @@ part('R26', 'Device', 'R', '10k', FP_R, (599.44, 93.98), {1: '+3V3', 2: 'ESP_BOO
 part('SW1', 'Switch', 'SW_Push', 'BOOT', 'Button_Switch_SMD:SW_SPST_PTS810', (627.38, 104.14),
      {1: 'ESP_BOOT', 2: 'GND'}, mpn='PTS810SJM250SMTRLFS')
 part('R27', 'Device', 'R', '1k', FP_R, (599.44, 127.0), {1: 'ESP_LED', 2: 'LED_ESP_A'})
+# v0.4: series termination for the two fast multi-drop lines from the ESP (SR_SCK drives 5 loads over ~96 mm,
+# SR_LATCH 4 loads over ~81 mm). ~25 ohm GPIO + 33 ohm ~ the trace impedance, so no double clocking on ringing.
+part('R28', 'Device', 'R', '33R', FP_R, (599.44, 154.94), {1: 'SR_SCK_ESP', 2: 'SR_SCK'}, note='series R at ESP')
+part('R29', 'Device', 'R', '33R', FP_R, (599.44, 170.18), {1: 'SR_LATCH_ESP', 2: 'SR_LATCH'}, note='series R at ESP')
 part('D7', 'Device', 'LED', 'LED blue (ESP)', FP_LED, (612.14, 139.7), {2: 'LED_ESP_A', 1: 'GND'})
 
 # microSD socket (SPI mode, 3.3 V)
@@ -235,7 +239,8 @@ save_addr = {12: 'SA0', 11: 'SA1', 10: 'SA2', 9: 'SA3', 8: 'SA4', 7: 'SA5', 6: '
              31: 'GND', 2: 'GND', 1: None}
 part('U16', 'Memory_RAM', 'AS6C1008-xxP', 'CY62128ELL-45SXI (save, 32K used)', FP_SOP32,
      (83.82, 408.94), {**save_addr, **sram_data, 22: 'SAVE_CE_N', 30: 'SAVE_CE2', 24: 'SRAM_OE_N',
-                       29: 'SRAM_WE_N', 32: 'VSAVE', 16: 'GND'}, mpn='CY62128ELL-45SXI')
+                       29: 'SRAM_WE_N', 32: 'VSAVE', 16: 'GND'}, mpn='CY62128ELL-45SXI',
+     datasheet='https://datasheet.lcsc.com/datasheet/pdf/da1a1ce58aea5fb275cb492340aa2d52.pdf?productCode=C2953613')
 part('U20', 'Power_Supervisor', 'MCP100-450D', 'MCP100-450', FP_SOT23, (172.72, 462.28),
      {1: 'PWR_OK', 2: '+5V', 3: 'GND'}, mpn='MCP100T-450I/TT')
 part('R6', 'Device', 'R', '1k', FP_R, (198.12, 462.28), {1: 'PWR_OK', 2: 'SAVE_CE2'})
@@ -312,6 +317,7 @@ PASSIVES = {  # (value, footprint) -> (manufacturer, MPN, LCSC); all JLC basic p
     ('1k', FP_R): ('UNI-ROYAL', '0603WAF1001T5E', 'C21190'),
     ('5.1k', FP_R): ('UNI-ROYAL', '0603WAF5101T5E', 'C23186'),
     ('100R', FP_R): ('UNI-ROYAL', '0603WAF1000T5E', 'C22775'),
+    ('33R', FP_R): ('UNI-ROYAL', '0603WAF330JT5E', 'C23140'),
     ('100k', FP_R): ('UNI-ROYAL', '0603WAF1003T5E', 'C25803'),
     ('100nF', FP_C): ('YAGEO', 'CC0603KRX7R9BB104', 'C14663'),      # 50 V X7R
     ('1uF', FP_C): ('Samsung', 'CL10A105KB8NNNC', 'C15849'),        # 50 V X5R

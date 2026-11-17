@@ -5,9 +5,9 @@
 	(uuid "374206fa-9bd8-5780-a96f-bcc6691c29df")
 	(paper "A1")
 	(title_block
-		(title "WSNES Flashcart - Cart v0.3 (mixed SMD/THT)")
-		(date "2026-11-16")
-		(rev "0.3")
+		(title "WSNES Flashcart - Cart v0.4 (mixed SMD/THT)")
+		(date "2026-11-17")
+		(rev "0.4")
 		(company "WSNES project")
 		(comment 1 "ESP32-S3-WROOM-1 + 512 KB ROM-SRAM + battery save RAM, LoROM, 5 V core, standard SNES PCB outline")
 		(comment 2 "Generated: tools/gen_project.py + tools/design.py")
@@ -20245,7 +20245,7 @@
 		(stroke (width 0) (type default))
 		(uuid "aaa38fd0-706b-5eaa-be4d-8e1b5376635a")
 	)
-	(label "SR_LATCH"
+	(label "SR_LATCH_ESP"
 		(at 538.48 106.68 180)
 		(fields_autoplaced yes)
 		(effects
@@ -20273,7 +20273,7 @@
 		(stroke (width 0) (type default))
 		(uuid "23657d2d-03a5-549d-be4e-84bf9c5838c9")
 	)
-	(label "SR_SCK"
+	(label "SR_SCK_ESP"
 		(at 538.48 111.76 180)
 		(fields_autoplaced yes)
 		(effects
@@ -21483,6 +21483,220 @@
 			(justify right bottom)
 		)
 		(uuid "4c87a3ab-e0ac-5293-abc0-0e0ec6d75a8d")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 599.44 154.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "283b7aec-5bb5-53c7-ab75-9cc5eb7e45f0")
+		(property "Reference" "R28"
+			(at 601.47 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Value" "33R"
+			(at 599.44 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 597.66 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 599.44 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Note" "series R at ESP"
+			(at 599.44 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF330JT5E"
+			(at 599.44 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 599.44 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23140"
+			(at 599.44 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Assembly" "JLC"
+			(at 599.44 154.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "acda53bf-88d3-5770-9924-0007d15ce47f"))
+		(pin "2" (uuid "46968fe2-010b-5f51-996e-718315ff7631"))
+		(instances
+			(project "WSNES_Proto"
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "R28") (unit 1))
+			)
+		)
+	)
+	(wire
+		(pts (xy 599.44 151.13) (xy 599.44 148.59))
+		(stroke (width 0) (type default))
+		(uuid "cd6d4c35-1987-5dfe-8e42-a7f0efde76c4")
+	)
+	(label "SR_SCK_ESP"
+		(at 599.44 148.59 90)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left bottom)
+		)
+		(uuid "5c0c6e7e-f063-549e-a7e9-c1cd96aa4569")
+	)
+	(wire
+		(pts (xy 599.44 158.75) (xy 599.44 161.29))
+		(stroke (width 0) (type default))
+		(uuid "d967c329-afca-51a0-9cd7-2198f2410af9")
+	)
+	(label "SR_SCK"
+		(at 599.44 161.29 270)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify right bottom)
+		)
+		(uuid "234aebc5-5402-59c3-85a6-2152396bf03b")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 599.44 170.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9552b49f-612f-55a2-9c59-6ed5fc0169aa")
+		(property "Reference" "R29"
+			(at 601.47 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Value" "33R"
+			(at 599.44 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 597.66 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 599.44 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Note" "series R at ESP"
+			(at 599.44 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF330JT5E"
+			(at 599.44 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 599.44 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23140"
+			(at 599.44 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Assembly" "JLC"
+			(at 599.44 170.18 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "9c5b6590-df1c-58c9-9719-b8dc30b58c6b"))
+		(pin "2" (uuid "e19c1d49-e9e0-5039-a0b2-b5be34911dff"))
+		(instances
+			(project "WSNES_Proto"
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "R29") (unit 1))
+			)
+		)
+	)
+	(wire
+		(pts (xy 599.44 166.37) (xy 599.44 163.83))
+		(stroke (width 0) (type default))
+		(uuid "27261a05-d8dc-5287-8bea-dc0945b31ef5")
+	)
+	(label "SR_LATCH_ESP"
+		(at 599.44 163.83 90)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left bottom)
+		)
+		(uuid "1fbfe587-b93a-5c8a-9aa5-7e8081a7e3f4")
+	)
+	(wire
+		(pts (xy 599.44 173.99) (xy 599.44 176.53))
+		(stroke (width 0) (type default))
+		(uuid "140295b3-17c4-51be-ac95-ba9f8d95609a")
+	)
+	(label "SR_LATCH"
+		(at 599.44 176.53 270)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify right bottom)
+		)
+		(uuid "dcff9d4e-68fd-5e78-b30a-9a36e5510b79")
 	)
 	(symbol
 		(lib_id "Device:LED")
@@ -31976,14 +32190,14 @@
 		)
 		(uuid "bc16614d-9e04-5bda-b043-3783267246ca")
 	)
-	(text "WSNES cart v0.3 - mixed SMD/THT, standard SNES PCB shape (ESP32-S3 + 512 KB ROM-SRAM + battery-backed save RAM, LoROM)"
+	(text "WSNES cart v0.4 - mixed SMD/THT, standard SNES PCB shape (ESP32-S3 + 512 KB ROM-SRAM + battery-backed save RAM, LoROM)"
 		(exclude_from_sim no)
 		(at 20.32 20.32 0)
 		(effects
 			(font (size 3 3) (thickness 0.6) (bold yes))
 			(justify left top)
 		)
-		(uuid "fdb64a63-674c-5a23-a6b8-406731ffd6ca")
+		(uuid "da5faa0e-43ba-50c4-91a5-8aaf3007a94c")
 	)
 	(text "Save RAM: CY62128E at LoROM $70-$7D/$F0-$FF:0000-7FFF, CR2032 backed, write-protected below 4.4 V"
 		(exclude_from_sim no)
@@ -31992,7 +32206,7 @@
 			(font (size 2 2) (thickness 0.4) (bold yes))
 			(justify left top)
 		)
-		(uuid "30ba3876-fe17-5d75-a61f-2d2389977fe8")
+		(uuid "75d9c5d9-1a93-57f9-93b1-6b52037b68b8")
 	)
 	(text "SAVE RAM\nU17 decodes the LoROM save area: A22=A21=A20=1, A15=0, /ROMSEL=0 -> SAVE_SEL_N (only in SNES mode and when SAVE_EN=1).\nU19 masks A11-A14 with SAVE_M11..M14 (ESP GPIOs) so the RAM mirrors at the header size (2 KB: all 0, 8 KB: M11+M12, 32 KB: all 1).\nSome games check the mirroring (anti-copier), so set the masks from the ROM header before releasing reset.\nESP access: BUS_ESP=1, address bit EA19 (U11 QD) = 1 selects the save chip, 0 the ROM chip (set masks to 1 for full access).\nPower fail: U20 drives CE2 low below ~4.4 V, R7 holds it low when the cart is off -> no garbage writes, data kept by BT1.\nEvery SNES write to the save area pulses MBX_IRQ_N -> ESP knows the save is dirty and copies it to SD (.srm) on reset/game change."
 		(exclude_from_sim no)
@@ -32084,7 +32298,7 @@
 		)
 		(uuid "d6c40209-ec9e-50e2-8154-de834728542b")
 	)
-	(text "ESP32-S3 GPIO MAP (N16R8: GPIO35-37 are used by octal PSRAM - do not use!)\nGPIO4 BUS_ESP   GPIO5 ESP_WE_N   GPIO6 ESP_OE_N   GPIO7 DOUT_OE_N\nGPIO15 RD_LOAD_N  GPIO16 MENU_WE_N  GPIO17 SNES_RST_DRV (1 = hold SNES in reset)\nGPIO18 MBX_IRQ_N  GPIO8 RESET_SENSE_N  GPIO9 SNES_5V_SENSE\nSPI2 (IOMUX): GPIO10 SR_LATCH, GPIO11 SR_MOSI, GPIO12 SR_SCK, GPIO13 SR_MISO\nSD (SPI3): GPIO1 CS, GPIO2 SCK, GPIO42 MOSI, GPIO41 MISO, GPIO38 card detect (0 = card in)\nUSB: GPIO19/20 native USB (flashing + serial), GPIO0 BOOT button, GPIO48 status LED\nSave RAM: GPIO21 SAVE_EN, GPIO14 M11, GPIO47 M12, GPIO39 M13, GPIO40 M14\nShift order (MSB first, 32 bit): DATA[7:0], A[23:16] (bit19 = EA19 save select), A[15:8], A[7:0]\nNever drive 5 V-side outputs while SNES_5V_SENSE = 0 (USB-only power: only the ESP side is alive)."
+	(text "ESP32-S3 GPIO MAP (N16R8: GPIO35-37 are used by octal PSRAM - do not use!)\nGPIO4 BUS_ESP   GPIO5 ESP_WE_N   GPIO6 ESP_OE_N   GPIO7 DOUT_OE_N\nGPIO15 RD_LOAD_N  GPIO16 MENU_WE_N  GPIO17 SNES_RST_DRV (1 = hold SNES in reset)\nGPIO18 MBX_IRQ_N  GPIO8 RESET_SENSE_N  GPIO9 SNES_5V_SENSE\nSPI2 (IOMUX): GPIO10 SR_LATCH, GPIO11 SR_MOSI, GPIO12 SR_SCK, GPIO13 SR_MISO (latch + clock via 33R R29/R28)\nSD (SPI3): GPIO1 CS, GPIO2 SCK, GPIO42 MOSI, GPIO41 MISO, GPIO38 card detect (0 = card in)\nUSB: GPIO19/20 native USB (flashing + serial), GPIO0 BOOT button, GPIO48 status LED\nSave RAM: GPIO21 SAVE_EN, GPIO14 M11, GPIO47 M12, GPIO39 M13, GPIO40 M14\nShift order (MSB first, 32 bit): DATA[7:0], A[23:16] (bit19 = EA19 save select), A[15:8], A[7:0]\nNever drive 5 V-side outputs while SNES_5V_SENSE = 0 (USB-only power: only the ESP side is alive)."
 		(exclude_from_sim no)
 		(at 424.18 280 0)
 		(effects

@@ -4,6 +4,15 @@ All notable changes to WSNES are listed here. Hardware revisions (the `v0.3` on 
 
 ## [Unreleased]
 
+Hardware v0.4, work in progress on branch `hw/v0.4`.
+
+### Added
+- **R28 and R29, 33 Ω series resistors** (`C23140`, JLC basic) at the ESP end of SR_SCK and SR_LATCH. These are the two fast multi-drop lines: SR_SCK drives 5 loads over about 96 mm, SR_LATCH 4 loads over about 81 mm. About 25 Ω of GPIO drive plus 33 Ω roughly matches the trace impedance, which damps the ringing that could double-clock the '595/'165.
+
+### Changed
+- **Schematic revision 0.4.** The title block, the title note and the GPIO map mention R28/R29.
+- **`gen_project.py`** takes an optional `datasheet=` per part, so U16 keeps its CY62128E datasheet link when the schematic is regenerated.
+
 ## [0.3.2] - 2026-11-17
 
 First release with a final gerber package. It includes the fixes from the 2026-11-17 production review, made with the KiCad MCP tools. Verified with KiCad 10.0.8 after refilling the zones: DRC 0 errors, 0 unconnected, schematic parity 0. The committed gerbers match a fresh export of the committed board.

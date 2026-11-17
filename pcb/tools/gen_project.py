@@ -146,7 +146,8 @@ class Sch:
         self.items.append(['text', Q(s), ['exclude_from_sim', 'no'], ['at', at[0], at[1], 0],
                            ['effects', eff, ['justify', 'left', 'top']], ['uuid', U('t', key or s[:40], at)]])
 
-    def instance(self, lib_id, ref, value, fp, at, unit, rot, libsym, key, hide_ref=False, in_bom=True, dnp=False, extra_props=()):
+    def instance(self, lib_id, ref, value, fp, at, unit, rot, libsym, key, hide_ref=False, in_bom=True, dnp=False, extra_props=(),
+                 datasheet=''):
         props = {str(p[1]): p for p in find(libsym, 'property')}
         def ppos(name, default):
             p = props.get(name)
@@ -166,7 +167,7 @@ class Sch:
                 ['exclude_from_sim', 'no'], ['in_bom', 'yes' if in_bom else 'no'], ['on_board', 'yes'],
                 ['dnp', 'yes' if dnp else 'no'], ['fields_autoplaced', 'yes'], ['uuid', U('sym', *key)],
                 prop('Reference', ref, hide_ref), prop('Value', value),
-                prop('Footprint', fp, True), prop('Datasheet', str(props['Datasheet'][2]) if 'Datasheet' in props else '', True)]
+                prop('Footprint', fp, True), prop('Datasheet', datasheet or (str(props['Datasheet'][2]) if 'Datasheet' in props else ''), True)]
         for k, v in extra_props:
             node.append(['property', Q(k), Q(v), ['at', at[0], at[1], 0], FONT_H])
         for n in pinnums:
@@ -211,7 +212,8 @@ def place_part(sch, p, projsyms, report):
         sch.instance(lib_id, p['ref'], p['value'], p['fp'], at, unit, 0, ls, (p['ref'], unit),
                      extra_props=tuple(x for x in (('Note', p.get('note', '')), ('MPN', p.get('mpn', '')),
                                                    ('Manufacturer', p.get('mfr', '')), ('LCSC', p.get('lcsc', '')),
-                                                   ('Assembly', p.get('asm', ''))) if x[1]))
+                                                   ('Assembly', p.get('asm', ''))) if x[1]),
+                     datasheet=p.get('datasheet', ''))
         seen = set()
         for pin in pins:
             if pin['unit'] not in (0, unit) or pin['number'] in seen:
@@ -241,8 +243,8 @@ def place_part(sch, p, projsyms, report):
 
 
 NOTES = [
-    ((20.32, 20.32), 'WSNES cart v0.3 - mixed SMD/THT, standard SNES PCB shape (ESP32-S3 + 512 KB ROM-SRAM + battery-backed save RAM, LoROM)', 3.0, True),
-    ((20.32, 345.44), 'Save RAM: AS6C1008 at LoROM $70-$7D/$F0-$FF:0000-7FFF, CR2032 backed, write-protected below 4.4 V', 2.0, True),
+    ((20.32, 20.32), 'WSNES cart v0.4 - mixed SMD/THT, standard SNES PCB shape (ESP32-S3 + 512 KB ROM-SRAM + battery-backed save RAM, LoROM)', 3.0, True),
+    ((20.32, 345.44), 'Save RAM: CY62128E at LoROM $70-$7D/$F0-$FF:0000-7FFF, CR2032 backed, write-protected below 4.4 V', 2.0, True),
     ((360.68, 355.6),
      'SAVE RAM\n'
      'U17 decodes the LoROM save area: A22=A21=A20=1, A15=0, /ROMSEL=0 -> SAVE_SEL_N (only in SNES mode and when SAVE_EN=1).\n'
@@ -276,7 +278,7 @@ NOTES = [
      'GPIO4 BUS_ESP   GPIO5 ESP_WE_N   GPIO6 ESP_OE_N   GPIO7 DOUT_OE_N\n'
      'GPIO15 RD_LOAD_N  GPIO16 MENU_WE_N  GPIO17 SNES_RST_DRV (1 = hold SNES in reset)\n'
      'GPIO18 MBX_IRQ_N  GPIO8 RESET_SENSE_N  GPIO9 SNES_5V_SENSE\n'
-     'SPI2 (IOMUX): GPIO10 SR_LATCH, GPIO11 SR_MOSI, GPIO12 SR_SCK, GPIO13 SR_MISO\n'
+     'SPI2 (IOMUX): GPIO10 SR_LATCH, GPIO11 SR_MOSI, GPIO12 SR_SCK, GPIO13 SR_MISO (latch + clock via 33R R29/R28)\n'
      'SD (SPI3): GPIO1 CS, GPIO2 SCK, GPIO42 MOSI, GPIO41 MISO, GPIO38 card detect (0 = card in)\n'
      'USB: GPIO19/20 native USB (flashing + serial), GPIO0 BOOT button, GPIO48 status LED\n'
      'Save RAM: GPIO21 SAVE_EN, GPIO14 M11, GPIO47 M12, GPIO39 M13, GPIO40 M14\n'
@@ -345,8 +347,8 @@ def main(proj_dir):
 
     root = ['kicad_sch', ['version', 20250114], ['generator', Q('eeschema')], ['generator_version', Q('9.0')],
             ['uuid', ROOT], ['paper', Q('A1')],
-            ['title_block', ['title', Q('WSNES Flashcart - Cart v0.3 (mixed SMD/THT)')], ['date', Q('2026-11-16')],
-             ['rev', Q('0.3')], ['company', Q('WSNES project')],
+            ['title_block', ['title', Q('WSNES Flashcart - Cart v0.4 (mixed SMD/THT)')], ['date', Q('2026-11-17')],
+             ['rev', Q('0.4')], ['company', Q('WSNES project')],
              ['comment', 1, Q('ESP32-S3-WROOM-1 + 512 KB ROM-SRAM + battery save RAM, LoROM, 5 V core, standard SNES PCB outline')],
              ['comment', 2, Q('Generated: tools/gen_project.py + tools/design.py')],
              ['comment', 3, Q('Copyright 2026 The810man - CC BY-NC-SA 4.0, no commercial use without permission')]],
