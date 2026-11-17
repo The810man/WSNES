@@ -1,6 +1,6 @@
 # WSNES: WiFi SNES flashcart
 
-AI NOTICE: Hey so i use claude code for making my commits cleaner sometimes, also for release taggin. Code, pcb and CAD is hand made. No generative ai in use, only assistive agentic workflows for documentation and versioning.
+AI NOTICE: Hey so i use claude code for making my commits cleaner sometimes, also for release taggin. Code, pcb and CAD is hand made but also enhanced via mcp tools (for example checking routing and fixing issues like via placement etc.). Agentic workflows used for documentation and versioning.
 
 WSNES is a SNES flash cartridge built around an **ESP32-S3** and parallel SRAM:
 
@@ -16,8 +16,8 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 
 | Part | State |
 |---|---|
-| Hardware v0.3 | Schematic done (ERC: 0 errors), all 89 parts placed, **fully routed, DRC 0 errors** (KiCad 10) |
-| Production review | [2026-11-17](docs/reviews/2026-11-17_production-review.md): **not ready to order yet**. One blocker (copper pour in the gold-finger tab) and five checks to do first; see [`pcb/README.md`](pcb/README.md#before-ordering) |
+| Hardware v0.3 | Schematic done (ERC: 0 errors), all 90 parts placed, **fully routed, DRC clean** (KiCad 10.0.8: 0 errors, 0 unconnected, parity 0) |
+| Production review | [2026-11-17](docs/reviews/2026-11-17_production-review.md): the tab-copper blocker and the missing USB ESD are **fixed and verified**. Still open before ordering: 9 ICs without a JLC listing, plus two bench checks. See [`pcb/README.md`](pcb/README.md#before-ordering). |
 | Housing | First draft: `cad/Cardridge.FCStd` (FreeCAD) |
 | Firmware | Not in this repo yet |
 

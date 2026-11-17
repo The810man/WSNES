@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": "WSNES_Proto.kicad_pro",
-  "current": "2026-11-17_1118",
+  "current": "2026-11-17_1400-2",
   "runs": {
     "2026-11-17_1118": {
       "source_hashes": {
@@ -16,12 +16,87 @@
         "cross_analysis": "cross_analysis.json",
         "thermal": "thermal.json",
         "emc": "emc.json",
-        "lifecycle": "lifecycle.json"
+        "lifecycle": "lifecycle.json",
+        "gerber": "gerber.json"
       },
       "scripts": {
         "schematic": "analyze_schematic.py WSNES_Proto.kicad_sch"
       },
-      "generated": "2026-11-17T11:32:45+01:00",
+      "generated": "2026-11-17T13:00:07+01:00",
+      "pinned": false
+    },
+    "2026-11-17_1342": {
+      "source_hashes": {
+        "WSNES_Proto.kicad_sch": "sha256:f50687446680d8b53095f226b0b113be50ff1b10831ac86dc722ecde35302f7f",
+        "WSNES_Proto.kicad_pcb": "sha256:fad9072a324e4e9ae1fe138d4ab85526218d8d0facfaeabd53e377d7de052a84"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py WSNES_Proto.kicad_sch"
+      },
+      "generated": "2026-11-17T13:42:14+01:00",
+      "pinned": false
+    },
+    "2026-11-17_1342-2": {
+      "source_hashes": {
+        "WSNES_Proto.kicad_sch": "sha256:f50687446680d8b53095f226b0b113be50ff1b10831ac86dc722ecde35302f7f",
+        "WSNES_Proto.kicad_pcb": "sha256:8c27db8efbe4fe91e238ef31c2ec4c0ae3116611910f253911857bb28fc92ab1",
+        "schematic.json": "sha256:d9517fa3dc2e6528f28998e15a8f41dbc1c1e143de7899745a79d1496b5ef397",
+        "pcb.json": "sha256:66704927e5961abd7fb36818eac732dccf48dcab023d020a6c8b36f28f46ad20"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "pcb": "analyze_pcb.py WSNES_Proto.kicad_pcb"
+      },
+      "generated": "2026-11-17T13:42:21+01:00",
+      "pinned": false
+    },
+    "2026-11-17_1400": {
+      "source_hashes": {
+        "WSNES_Proto.kicad_sch": "sha256:d22b3611ee4b90a698f0050e020737aafc8b4d5cc9bfe077eda3c9d826c186d0",
+        "WSNES_Proto.kicad_pcb": "sha256:8c27db8efbe4fe91e238ef31c2ec4c0ae3116611910f253911857bb28fc92ab1"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py WSNES_Proto.kicad_sch"
+      },
+      "generated": "2026-11-17T14:00:42+01:00",
+      "pinned": false
+    },
+    "2026-11-17_1400-2": {
+      "source_hashes": {
+        "WSNES_Proto.kicad_sch": "sha256:d22b3611ee4b90a698f0050e020737aafc8b4d5cc9bfe077eda3c9d826c186d0",
+        "WSNES_Proto.kicad_pcb": "sha256:04d11752a3f7582ef5ba628ac45a2144ff3a564a6a9e79679b194a84d5009da9",
+        "schematic.json": "sha256:3fcf9c99fb576ea5f9a97169689657370e1c4e880f007b535bb189d12565c7ca",
+        "pcb.json": "sha256:bc4e407a565d155737cb24f0a4fbe3823db23ae739957239fdc0b76fb3c6c6f3"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "pcb": "analyze_pcb.py WSNES_Proto.kicad_pcb"
+      },
+      "generated": "2026-11-17T14:00:47+01:00",
       "pinned": false
     }
   }

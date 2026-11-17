@@ -2,6 +2,28 @@
 
 All notable changes to WSNES are listed here. Hardware revisions (the `v0.3` on the silkscreen) and project releases are separate: one hardware revision can span several project releases.
 
+## [Unreleased]
+
+Fixes from the 2026-11-17 production review, made with the KiCad MCP tools. Verified with KiCad 10.0.8 after refilling the zones: DRC 0 errors, 0 unconnected, schematic parity 0. A test gerber export passes the gerber check.
+
+### Fixed
+- **Gold-finger tab:** four `tab_no_pour` rule areas (all copper layers, y ≥ 156) keep every pour out of the finger band and the bevelled tip.
+  - GND fingers 5 and 36 were grounded only through that pour. They now have their own 0.6 mm tracks and a GND via.
+  - The review's original fix instruction (rule area only) would have disconnected them. The review now says so.
+  - The cut also isolated the F.Cu GND patch that feeds U5 pin 10. A new GND via at (140.64, 150.2) ties it to the In1 plane.
+- **U23 footprint** now carries the schematic's `Note` field, which clears a schematic-parity warning.
+
+### Added
+- **U23 USBLC6-2SC6 USB ESD protection** at J5 (D+, D−, VBUS):
+  - Added in `pcb/tools/design.py`, then regenerated the schematic and `intended_pins.json` (ERC 0/0, netlist check passes on 596 pins).
+  - Placed and routed on the board; added to the BOMs and the CPL.
+- **LCSC part numbers** for 26 of 35 lines in `production/jlc/WSNES_BOM_JLC.csv`, each checked against the LCSC catalogue.
+  - Green and blue LEDs: switched to in-stock KT-0603G and KT-0603B.
+  - U18/U19: assigned to TI SN74HCT08PWR, which is pin-compatible.
+
+### Known issues
+- **9 ICs have no JLC listing:** AS6C4008, AS6C1008, 74HCT165, CD74HC4050, 74HCT138, 74AHCT541, 74AHCT245, 74HCT32, 74HCT157. Use Global Sourcing or consignment, or hand-solder them.
+
 ## [0.3.1] - 2026-11-17
 
 ### Added

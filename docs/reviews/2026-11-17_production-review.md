@@ -31,6 +31,18 @@ Before ordering, also do the following:
 3. Export gerbers and drill files.
 4. Close the four verification items in the WARNING rows below. All of them can be done at the bench or in the JLC order form.
 
+## Follow-up: fixes applied (2026-11-17, same day)
+
+Made with the KiCad MCP tools and checked against the raw board file. None of this is in a committed release yet; see `CHANGELOG.md` → Unreleased.
+
+| Finding | Status | What changed |
+|---|---|---|
+| Tab copper (CRITICAL) | **Fixed and verified** | Four `tab_no_pour` rule areas (F.Cu, In1, In2, B.Cu) over x 119–181, y ≥ 156, forbidding pour only. Fingers 5 and 36 (GND) had **no track at all**; they were grounded only through the pour, so they now have their own 0.6 mm F.Cu/B.Cu tracks and a GND via 1 mm above the fingers. The first KiCad 10 DRC then showed one more cut-off piece: the F.Cu GND patch feeding U5 pin 10, now tied to In1 with a GND via at (140.64, 150.2), 0.41 mm minimum clearance. After the refill, `tab_copper.py` measures 0 of 23 finger gaps with copper and 0 mm² within 1 mm of the tip, on every layer. |
+| No USB ESD | **Fixed** | U23 USBLC6-2SC6 (LCSC C7519; pinout checked against the ST datasheet). Added to `design.py` and regenerated; ERC 0/0, netlist check 596 pins OK. Placed at (146.05, 95.25) and routed: D+, D−, VBUS, GND and the pin-1/6 and 3/4 flow-through links. 0 clearance violations (closest approach 0.26 mm against the 0.2 mm rule); all 177 nets routed, each one copper island. |
+| No LCSC part numbers | **Mostly fixed** | 26 of 35 JLC BOM lines now have a verified LCSC number. **9 ICs have no JLC listing** in their family and package: AS6C4008, AS6C1008, 74HCT165, CD74HC4050, 74HCT138, 74AHCT541, 74AHCT245, 74HCT32, 74HCT157. Use JLC Global Sourcing, consign them, or hand-solder them. HCT drop-ins exist for the '541 (SN74HCT541PWR, C436096) and the '245 (74HCT245PW, C52140501), but they are slower than AHCT. |
+| Edge pinout, console /RESET, 65 °C | Open | Bench and housing checks, unchanged. |
+| DRC and gerbers (previously not performed) | **Done** | KiCad 10.0.8, zones refilled: 0 errors, 0 unconnected, schematic parity 0; only the two known `silk_edge_clearance` warnings at U21 remain. Gerber and drill test export: `analyze_gerbers.py` reports all layers present and aligned, 112.3 × 77.9 mm, 437 vias, no findings. |
+
 ## Critical Findings
 
 | Severity | Issue | Section |
@@ -64,9 +76,10 @@ Nintendo boards have nothing in the tab except the fingers and their traces.
 
 **Fix:**
 
-1. Add a rule area on F.Cu, In1.Cu, In2.Cu and B.Cu covering x 120–180, y ≥ 154. Set it to forbid copper pour only; tracks and pads stay allowed.
-2. Press `B` to refill the zones.
-3. Re-run DRC.
+1. **First** give GND fingers 5 and 36 their own tracks. They have none and are grounded only through the pour, so a no-pour area alone would disconnect the cart's ground. *(This step was missing from the first version of this report; it was found while applying the fix.)*
+2. Add a rule area on F.Cu, In1.Cu, In2.Cu and B.Cu covering the finger band and tip (applied as x 119–181, y ≥ 156). Set it to forbid copper pour only; tracks and pads stay allowed.
+3. Press `B` to refill the zones.
+4. Re-run DRC.
 
 ## Previous Review Delta
 
@@ -450,11 +463,11 @@ The rotations are raw KiCad values. SOT-23, SOT-23-5 and SOD-323 parts usually n
 
 | Severity | Issue | Action |
 |---|---|---|
-| CRITICAL | Pour copper in gold-finger tab, all layers | Rule area (no pour) over the tab on all 4 layers, refill, DRC |
+| CRITICAL | Pour copper in gold-finger tab, all layers | GND tracks for fingers 5/36 first, then a no-pour rule area on all 4 layers, refill, DRC. *Applied 2026-11-17; refill and DRC pending.* |
 | WARNING | Edge pinout not checked on hardware | Continuity check against an original cart; confirm CIC data direction |
 | WARNING | Q1 forces /RESET low by default | Measure the console driver; add a drain resistor if it's push-pull |
-| WARNING | No USB ESD | USBLC6-2SC6 at J5 (next spin) |
-| WARNING | No LCSC part numbers; SRAM/4050/connector stock unknown | Fill in the JLC BOM; plan hand-solder or consignment for the SRAMs if needed |
+| WARNING | No USB ESD | USBLC6-2SC6 at J5. *Applied 2026-11-17 as U23.* |
+| WARNING | No LCSC part numbers; SRAM/4050/connector stock unknown | Fill in the JLC BOM. *26 of 35 lines filled on 2026-11-17; 9 ICs have no JLC listing and need Global Sourcing, consignment or hand-soldering.* |
 | WARNING | ESP module rated 65 °C ambient | Ventilate the housing near U21/U22; leave PSRAM ECC off |
 | SUGGESTION | 0.3/0.15 mm via | Select the via option on the order form, or re-route U12-8 |
 | SUGGESTION | D7 blue LED too dim at 3.3 V/1k | R27 → 100–150 Ω |

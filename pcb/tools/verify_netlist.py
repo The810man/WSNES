@@ -7,9 +7,10 @@ net_file, intended_file = sys.argv[1], sys.argv[2]
 s = open(net_file).read()
 actual = {}
 nets = collections.defaultdict(set)
-for m in re.finditer(r'\(net \(code "\d+"\) \(name "([^"]*)"\)(.*?)(?=\(net \(code|\Z)', s, re.S):
+# whitespace-tolerant: KiCad 9 writes each node on one line, KiCad 10 pretty-prints them
+for m in re.finditer(r'\(net\s+\(code\s+"\d+"\)\s+\(name\s+"([^"]*)"\)(.*?)(?=\(net\s+\(code|\Z)', s, re.S):
     name = m.group(1).lstrip('/')
-    for ref, pin in re.findall(r'\(node \(ref "([^"]+)"\) \(pin "([^"]+)"\)', m.group(2)):
+    for ref, pin in re.findall(r'\(node\s+\(ref\s+"([^"]+)"\)\s+\(pin\s+"([^"]+)"\)', m.group(2)):
         actual[(ref, pin)] = name
         nets[name].add((ref, pin))
 errors = 0

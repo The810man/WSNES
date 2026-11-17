@@ -210,6 +210,7 @@ def place_part(sch, p, projsyms, report):
         at = (snap(at[0], 2.54), snap(at[1], 2.54))
         sch.instance(lib_id, p['ref'], p['value'], p['fp'], at, unit, 0, ls, (p['ref'], unit),
                      extra_props=tuple(x for x in (('Note', p.get('note', '')), ('MPN', p.get('mpn', '')),
+                                                   ('Manufacturer', p.get('mfr', '')), ('LCSC', p.get('lcsc', '')),
                                                    ('Assembly', p.get('asm', ''))) if x[1]))
         seen = set()
         for pin in pins:

@@ -11,7 +11,11 @@ asm='JLC'  -> assembled by JLCPCB (SMD)
 asm='HAND' -> ordered and soldered by you (ESP module, PIC, battery holder, optional ICSP header)
 """
 
-SYMDIR = '/usr/share/kicad/symbols/'
+import os
+# Symbol snapshot (KiCad 9 library versions, taken from the schematic's embedded cache on 2026-11-17).
+# Regeneration must not depend on the installed KiCad: the KiCad 10 library renames some pins
+# (e.g. the microSD/USB-C shield pins), which would break the pin assignments below.
+SYMDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'symcache') + os.sep
 PROJLIB = 'WSNES_Proto'
 
 # ---------------------------------------------------------------- helpers
@@ -94,13 +98,15 @@ part('U1', 'Memory_RAM', 'AS6C4008-55PCN', 'AS6C4008-55SIN (ROM, 512K x 8)', FP_
                        32: '+5V', 16: 'GND'}, mpn='AS6C4008-55SIN')
 
 # ---------------------------------------------------------------- glue logic (5 V, HCT inputs accept 3.3 V)
-part('U8', '74xx', '74LS157', '74HCT157', FP_TSSOP16, (256.54, 162.56),
+# U8 is AHCT (pin-compatible): it sits in the /ROMSEL -> SRAM /CE path and saves ~24 ns worst case
+# against the HCT157 (34 -> 9.8 ns), which helps FastROM timing.
+part('U8', '74xx', '74LS157', '74AHCT157', FP_TSSOP16, (256.54, 162.56),
      {1: 'BUS_ESP', 15: 'GND', 16: '+5V', 8: 'GND',
       2: 'ROM_SEL_N', 3: 'EA19', 4: 'SRAM_CE_N',          # ROM chip /CE
       5: 'SNES_RD_N', 6: 'ESP_OE_N', 7: 'SRAM_OE_N',      # shared /OE
       11: 'SNES_WE_N', 10: 'ESP_WE_N', 9: 'SRAM_WE_N',    # shared /WE
       14: 'SAVE_SEL_N', 13: 'EA19_N', 12: 'SAVE_CE_N'},   # save chip /CE1
-     mpn='74HCT157PW')
+     mpn='SN74AHCT157PWR')
 part('U6', '74xx', '74HCT00', '74HCT00', FP_TSSOP14, None,
      {1: 'SNES_ROMSEL_N', 2: 'SNES_ROMSEL_N', 3: 'ROMSEL',
       4: 'SNES_A15', 5: 'ROMSEL', 6: 'ROM_SEL_N',
@@ -193,6 +199,9 @@ part('J5', 'Connector', 'USB_C_Receptacle_USB2.0_16P', 'USB-C', 'Connector_USB:U
 part('R23', 'Device', 'R', '5.1k', FP_R, (594.36, 254.0), {1: 'USB_CC1', 2: 'GND'})
 part('R24', 'Device', 'R', '5.1k', FP_R, (604.52, 254.0), {1: 'USB_CC2', 2: 'GND'})
 part('D6', 'Diode', '1N5819WS', '1N5819WS', FP_SOD323, (680.72, 266.7), {2: 'VBUS', 1: 'ESP_5V'}, mpn='1N5819WS')
+# ESD protection for the USB port (added after the 2026-11-17 production review)
+part('U23', 'Power_Protection', 'USBLC6-2SC6', 'USBLC6-2SC6', 'Package_TO_SOT_SMD:SOT-23-6', (675.64, 309.88),
+     {1: 'USB_DP', 6: 'USB_DP', 3: 'USB_DN', 4: 'USB_DN', 5: 'VBUS', 2: 'GND'}, mpn='USBLC6-2SC6', note='USB ESD')
 part('U22', 'Regulator_Linear', 'AP2112K-3.3', 'AP2112K-3.3', 'Package_TO_SOT_SMD:SOT-23-5', (723.9, 284.48),
      {1: 'ESP_5V', 3: 'ESP_5V', 2: 'GND', 4: None, 5: '+3V3'}, mpn='AP2112K-3.3TRG1')
 part('C23', 'Device', 'C', '10uF', FP_C0805, (701.04, 299.72), {1: 'ESP_5V', 2: 'GND'})
@@ -251,6 +260,68 @@ RAIL = {'U14': '+3V3', 'U16': 'VSAVE'}
 for i, ic in enumerate(dec):
     part('C%d' % (i + 3), 'Device', 'C', '100nF', FP_C, (139.7 + i * 15.24, 317.5), {1: RAIL.get(ic, '+5V'), 2: 'GND'},
          note='decouples ' + ic)
+
+# ---------------------------------------------------------------- sourcing (checked 2026-11-17)
+# (manufacturer, MPN, LCSC part number). LCSC numbers were looked up and their package checked against
+# the LCSC catalogue; pinouts of every substitute were checked against the maker's datasheet.
+# Not stocked at LCSC on 2026-11-17 (use JLC parts pre-order / Global Sourcing, or hand-solder):
+#   U1 AS6C4008-55SIN, U16 AS6C1008-55SIN, U13 74HCT165PW,118.
+SOURCING = {
+    'U1': ('Alliance Memory', 'AS6C4008-55SIN', 'C1350086'),
+    'U16': ('Alliance Memory', 'AS6C1008-55SIN', 'C1351203'),   # 2.7-5.5 V: needed behind the BAT54C
+    'U2': ('Nexperia', '74AHCT541PW,118', 'C84548'),
+    'U3': ('Nexperia', '74AHCT541PW,118', 'C84548'),
+    'U4': ('Nexperia', '74AHCT541PW,118', 'C84548'),
+    'U5': ('Nexperia', '74AHCT245PW,118', 'C173388'),
+    'U6': ('Nexperia', '74HCT00PW,118', 'C8206'),
+    'U7': ('Texas Instruments', 'SN74HCT32PWR', 'C132266'),
+    'U8': ('Texas Instruments', 'SN74AHCT157PWR', 'C2674471'),
+    'U9': ('MDD', '74HCT595PW', 'C54411086'),
+    'U10': ('MDD', '74HCT595PW', 'C54411086'),
+    'U11': ('MDD', '74HCT595PW', 'C54411086'),
+    'U12': ('MDD', '74HCT595PW', 'C54411086'),
+    'U13': ('Nexperia', '74HCT165PW,118', 'C547409'),          # must stay HCT: CP and /PL are 3.3 V
+    'U14': ('Texas Instruments', 'CD74HC4050PWR', 'C352825'),
+    'U15': ('Microchip', 'PIC12F629-I/P', 'C9785'),
+    'U17': ('Texas Instruments', 'SN74HCT138PWR', 'C8115'),
+    'U18': ('Texas Instruments', 'SN74HCT08PWR', 'C8181'),
+    'U19': ('Texas Instruments', 'SN74HCT08PWR', 'C8181'),
+    'U20': ('Microchip', 'MCP100T-450I/TT', 'C134467'),
+    'U21': ('Espressif', 'ESP32-S3-WROOM-1-N16R8', 'C2913202'),
+    'U22': ('Diodes Inc.', 'AP2112K-3.3TRG1', 'C51118'),
+    'U23': ('STMicroelectronics', 'USBLC6-2SC6', 'C7519'),
+    'Q1': ('JSCJ', '2N7002', 'C8545'),
+    'D1': ('Hottech', '1N5819WS', 'C191023'),
+    'D6': ('Hottech', '1N5819WS', 'C191023'),
+    'D4': ('High Diode', 'BAT54C', 'C466637'),
+    'D2': ('KENTO', 'KT-0603R', 'C2286'),
+    'D3': ('KENTO', 'KT-0603G', 'C12624'),
+    'D7': ('KENTO', 'KT-0603B', 'C2288'),
+    'J2': ('Hirose', 'DM3AT-SF-PEJM5', 'C114218'),
+    'J3': ('DEALON', 'DM254R-11-05-85', 'C2935976'),          # optional ICSP header, 1x5 2.54 mm THT
+    'J5': ('HRO', 'TYPE-C-31-M-12', 'C165948'),
+    'SW1': ('C&K', 'PTS810SJK250SMTRLFS', 'C221896'),         # SJM (1.6 N) out of stock; SJK = 2.6 N, same footprint
+    'SW2': ('C&K', 'PTS810SJK250SMTRLFS', 'C221896'),
+    'BT1': ('MYOUNG', 'BS-07-A1BJ001', 'C2979167'),           # holder only; add one CR2032 cell
+}
+PASSIVES = {  # (value, footprint) -> (manufacturer, MPN, LCSC); all JLC basic parts
+    ('10k', FP_R): ('UNI-ROYAL', '0603WAF1002T5E', 'C25804'),
+    ('1k', FP_R): ('UNI-ROYAL', '0603WAF1001T5E', 'C21190'),
+    ('5.1k', FP_R): ('UNI-ROYAL', '0603WAF5101T5E', 'C23186'),
+    ('100R', FP_R): ('UNI-ROYAL', '0603WAF1000T5E', 'C22775'),
+    ('100k', FP_R): ('UNI-ROYAL', '0603WAF1003T5E', 'C25803'),
+    ('100nF', FP_C): ('YAGEO', 'CC0603KRX7R9BB104', 'C14663'),      # 50 V X7R
+    ('1uF', FP_C): ('Samsung', 'CL10A105KB8NNNC', 'C15849'),        # 50 V X5R
+    ('10uF', FP_C0805): ('Samsung', 'CL21A106KAYNNNE', 'C15850'),   # 25 V X5R
+    ('22uF', FP_C0805): ('Samsung', 'CL21A226MAQNNNE', 'C45783'),   # 25 V X5R
+    ('22uF', FP_C1206): ('Samsung', 'CL31A226KAHNNNE', 'C12891'),   # 25 V X5R
+}
+for _p in parts:
+    _src = SOURCING.get(_p['ref']) or PASSIVES.get((_p['value'], _p['fp']))
+    if _src:
+        _p['mfr'], _p['mpn'], _p['lcsc'] = _src
+    elif _p['asm'] != 'PCB':
+        raise SystemExit('no sourcing entry for ' + _p['ref'])
 
 # PWR_FLAG for nets fed only through passive pins
 pwr_flags = {'ESP_5V': (63.5, 304.8), 'VSAVE': (127.0, 467.36), 'VBUS': (657.86, 254.0)}
