@@ -19,3 +19,6 @@ pcb/freerouting.ses
 # Python
 __pycache__/
 *.pyc
+
+# KiCad local history (its own git repo inside pcb/)
+.history/

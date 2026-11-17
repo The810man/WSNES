@@ -14,8 +14,8 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 
 | Part | State |
 |---|---|
-| Hardware v0.3 | Schematic done (ERC clean), all 89 parts placed, **routing in progress** |
-| Housing | Not in this repo yet; the board's 3D model is in `cad/` |
+| Hardware v0.3 | Schematic done (ERC: 0 errors), all 89 parts placed, **fully routed, DRC 0 errors** |
+| Housing | Not in this repo yet; the board's full 3D model (STEP + STL) is in `cad/` |
 | Firmware | Not in this repo yet |
 
 ## Repository layout
@@ -24,12 +24,13 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 .
 ├── pcb/                    KiCad 9 project (open WSNES_Proto.kicad_pro)
 │   ├── README.md           board details: who solders what, routing, ordering
-│   ├── lib/                project symbols + footprints (cart edge drawn from scratch)
+│   ├── lib/                project symbols + footprints (cart edge drawn from scratch), vendor 3D models
 │   ├── tools/              Python generators; design.py is the design table
 │   ├── freerouting/        Specctra DSN for the autorouter
 │   └── production/         full BOM + JLCPCB assembly files (BOM, CPL)
 ├── cad/
-│   └── WSNES_Proto.step    3D model of the board, for designing the housing
+│   ├── WSNES_Proto.step    3D model of the board with all parts, for designing the housing
+│   └── WSNES_Proto.stl     same, as a mesh (for slicers / mesh tools)
 ├── docs/
 │   ├── WSNES_Proto_schematic.pdf   schematic incl. bus map, GPIO map, firmware flow
 │   └── masterplan.md               original architecture notes (German, historical)

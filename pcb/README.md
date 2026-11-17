@@ -8,16 +8,26 @@ v0.3 fits the standard SNES cartridge PCB outline: 112.2 × 66.7 mm plus the 11.
 | | |
 |---|---|
 | Schematic | `WSNES_Proto.kicad_sch`. ERC: 0 errors, 0 warnings. All 590 pins checked against the design table. |
-| PCB | `WSNES_Proto.kicad_pcb`: 89 parts placed, nets assigned, planes poured. **Routing in progress** (321 connections still open as of 2026-11-16). |
+| PCB | `WSNES_Proto.kicad_pcb`: 89 parts, **fully routed**. DRC (KiCad 10, 2026-11-17): 0 errors, 0 unconnected, schematic parity 0. See [DRC status](#drc-status). |
 | Routing input | `freerouting/WSNES_Proto.dsn` (inner planes only, see below) |
 | JLC assembly | `production/jlc/WSNES_BOM_JLC.csv` + `production/jlc/WSNES_CPL_JLC.csv` (only the parts JLC solders) |
 | Full BOM | `production/WSNES_Proto_BOM.csv` (the `Assembly` column says who solders what) |
-| 3D model | `../cad/WSNES_Proto.step`, for designing the housing |
+| 3D model | `../cad/WSNES_Proto.step` and `../cad/WSNES_Proto.stl` (every part has a model), for designing the housing |
 | Schematic PDF | `../docs/WSNES_Proto_schematic.pdf` |
 
-**DRC at placement (before routing started):** 0 errors and schematic parity 0. Two harmless leftovers remain:
-- the module's silkscreen outline touches the board edge;
-- the +3V3 plane shows as isolated until the vias are routed.
+## DRC status
+
+0 errors, 0 unconnected items, schematic parity 0. Four warnings remain, all reviewed and harmless:
+
+- **`silk_edge_clearance` ×2 (U21):** the ESP32 module outline overhangs the top edge by design, because the antenna sits at the edge. The fab clips silk there.
+- **`lib_footprint_mismatch` (J2, J5):** these were placed from the KiCad 9 library. The KiCad 10 copies have identical pad geometry but name the shield pads `SH` (this project uses `S1`/`11` to match its symbols), and J5's pads are roundrect. Do **not** "update from library": it would renumber the shield pads. ERC shows the matching `lib_symbol_mismatch` warnings.
+
+Project rules in `WSNES_Proto.kicad_dru`:
+
+- **SMD IC GND pins** (all `U*` except the hand-soldered ESP U21, plus C14) connect solidly to the F.Cu GND pour. Several were left with a single thermal spoke.
+- **One 0.3/0.15 mm GND via** at U12 pin 8 (152.60, 130.39). That pin sits in a pocket fenced by SD6/SD7 on F.Cu, SV_A14 on In1 and the EA19/SD6 bus on In2, and 0.3 mm is the largest via that fits. Every other via is ≥ 0.45/0.2.
+
+Two small `no_pour_sliver` keepouts on In2 (around x 158–166, y 152–155) remove thin, unconnected slivers of the +5V plane.
 
 ## Who solders what
 
@@ -92,6 +102,8 @@ The ESP copies the save to `<game>.srm` on SD when you return to the menu or pre
 
 ## Before ordering
 
+- **Fine via:** the one 0.3/0.15 mm GND via (see [DRC status](#drc-status)) needs the fab's multilayer small-via option. If you want to avoid it, re-route SD7's branch under U12 so pin 8 can reach a normal via.
+- **Inner layers carry signals:** freerouting also used In1 (GND) and In2 (+5V/+3V3) for about 1.7 m + 2.2 m of signal track. The planes are still each one connected region, but they are cut up. That's fine at SNES bus speeds; keep an eye on the ESP/RF area if you re-route.
 - **MCP100 SOT-23 pinout:** the footprint assumes 1 = RST, 2 = VDD, 3 = VSS. Check it against the Microchip datasheet.
 - **CR2032 holder:** `+` is the square pad. Check its height against your housing.
 - **SNES 5 V budget:** ESP32 WiFi peaks reach about 350–500 mA. Lowering the TX power helps if the console struggles.
@@ -117,7 +129,13 @@ python3 tools/gen_pcb.py .            # DO NOT RUN: rebuilds the PCB from scratc
 
 # refresh the exported docs / 3D model
 kicad-cli sch export pdf -o ../docs/WSNES_Proto_schematic.pdf WSNES_Proto.kicad_sch
-kicad-cli pcb export step -o ../cad/WSNES_Proto.step WSNES_Proto.kicad_pcb
+kicad-cli pcb export step -f -o ../cad/WSNES_Proto.step WSNES_Proto.kicad_pcb
+kicad-cli pcb export stl  -f -o ../cad/WSNES_Proto.stl  WSNES_Proto.kicad_pcb
+
+# refill zones + full check
+kicad-cli pcb drc --refill-zones --save-board --schematic-parity WSNES_Proto.kicad_pcb
 ```
+
+BT1, J5 and U1/U16 use vendor models from `lib/3dmodels/`, because KiCad's 3D library has none for those footprints. See `lib/3dmodels/README.md` for where they come from and their offsets.
 
 Routing has started, so KiCad is now the source of truth. Don't rerun `gen_pcb.py`.

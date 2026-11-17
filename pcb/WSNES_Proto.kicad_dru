@@ -1,0 +1,20 @@
+(version 1)
+
+# GND pins of the SMD logic/SRAM/regulator ICs (and C14) join the F.Cu GND pour
+# solidly. With thermal spokes, several of these pads only got one spoke
+# because tracks crowd them (DRC "starved thermal"). The ESP module (U21) is
+# soldered by hand, so it keeps thermal reliefs.
+(rule "GND SMD IC pins solid to pour"
+	(condition "A.Type == 'Pad' && A.Pad_Type == 'SMD' && A.NetName == 'GND' && B.Type == 'Zone' && (A.memberOfFootprint('U*') || A.memberOfFootprint('C14')) && !A.memberOfFootprint('U21')")
+	(constraint zone_connection solid))
+
+# One GND via (U12 pin 8, at 152.60/130.39) sits in a pocket boxed in by SD6/SD7
+# on F.Cu, SV_A14 on In1 and the EA19/SD6 bus on In2. 0.3 mm is the largest via
+# that fits there. 0.3/0.15 is within JLCPCB's multilayer via capability, but it
+# is below this board's general 0.45/0.2 minimum, so it is allowed explicitly and
+# only for GND vias smaller than 0.45 mm.
+(rule "GND fine via (U12-8 pocket)"
+	(condition "A.Type == 'Via' && A.NetName == 'GND' && A.Diameter < 0.45mm")
+	(constraint via_diameter (min 0.3mm))
+	(constraint hole_size (min 0.15mm))
+	(constraint annular_width (min 0.075mm)))
