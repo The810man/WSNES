@@ -1,0 +1,8 @@
+# Analysis output -- regenerable from source files
+*
+!.gitignore
+!manifest.json
+# Review evidence cited by docs/reviews/*.md
+!deep_review.json
+!helpers/
+!helpers/*.py

@@ -1,6 +1,6 @@
 # WSNES „SNES-LoROM-Flashcart mit WLAN-Upload für Homebrew und Entwicklung auf echter Hardware.“
 
-AI NOTICE: Hey so i use claude code for making my commits cleaner sometimes, also for release taggin. Code, pcb and CAD is hand made. No generative ai in use, only assistive agentic workflows for documentation and versioning.
+AI NOTICE: Hey so i use claude code for making my commits cleaner sometimes, also for release taggin. Code, pcb and CAD is hand made but also enhanced via mcp tools (for example checking routing and fixing issues like via placement etc.). Agentic workflows used for documentation and versioning.
 
 WSNES is a SNES flash cartridge built around an **ESP32-S3** and parallel SRAM:
 
@@ -12,28 +12,35 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 
 ## Status
 
+**Latest release: v0.3.1 (2026-11-17).** See [CHANGELOG.md](CHANGELOG.md).
+
 | Part | State |
 |---|---|
-| Hardware v0.3 | Schematic done (ERC: 0 errors), all 89 parts placed, **fully routed, DRC 0 errors** |
-| Housing | Not in this repo yet; the board's full 3D model (STEP + STL) is in `cad/` |
+| Hardware v0.3 | Schematic done (ERC: 0 errors), all 90 parts placed, **fully routed, DRC clean** (KiCad 10.0.8: 0 errors, 0 unconnected, parity 0) |
+| Production review | [2026-11-17](docs/reviews/2026-11-17_production-review.md): the tab-copper blocker and the missing USB ESD are **fixed and verified**. Still open before ordering: 9 ICs without a JLC listing, plus two bench checks. See [`pcb/README.md`](pcb/README.md#before-ordering). |
+| Housing | First draft: `cad/Cardridge.FCStd` (FreeCAD) |
 | Firmware | Not in this repo yet |
 
 ## Repository layout
 
 ```
 .
-├── pcb/                    KiCad 9 project (open WSNES_Proto.kicad_pro)
+├── pcb/                    KiCad project (open WSNES_Proto.kicad_pro; the board needs KiCad 10)
 │   ├── README.md           board details: who solders what, routing, ordering
 │   ├── lib/                project symbols + footprints (cart edge drawn from scratch), vendor 3D models
 │   ├── tools/              Python generators; design.py is the design table
 │   ├── freerouting/        Specctra DSN for the autorouter
 │   └── production/         full BOM + JLCPCB assembly files (BOM, CPL)
 ├── cad/
-│   ├── WSNES_Proto.step    3D model of the board with all parts, for designing the housing
-│   └── WSNES_Proto.stl     same, as a mesh (for slicers / mesh tools)
+│   ├── Cardridge.FCStd     first housing draft (FreeCAD)
+│   ├── WSNES.step / .stl   latest KiCad 3D export of the board with all parts
+│   └── WSNES_Proto.step / .stl   earlier export of the same board
 ├── docs/
+│   ├── reviews/            design reviews (production review 2026-11-17)
 │   ├── WSNES_Proto_schematic.pdf   schematic incl. bus map, GPIO map, firmware flow
 │   └── masterplan.md               original architecture notes (German, historical)
+├── analysis/               review evidence: deep_review.json + helper scripts (analyzer runs are not committed)
+├── CHANGELOG.md            release history
 ├── LICENSES/               full licence texts
 ├── LICENSE.md              which licence covers what
 └── CONTRIBUTING.md         terms for contributions
@@ -43,7 +50,8 @@ Start with [`pcb/README.md`](pcb/README.md) for the hardware.
 
 ## Tools
 
-- KiCad 9 (`kicad-cli` and the `pcbnew` Python module are needed for the generators)
+- KiCad 10 to open the board: `WSNES_Proto.kicad_pcb` is saved in KiCad 10 format, and KiCad 9 can't load it. The schematic still opens in KiCad 9.
+- `kicad-cli` and the `pcbnew` Python module, for the generators in `pcb/tools/`
 - freerouting, for autorouting
 - Python 3
 

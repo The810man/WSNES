@@ -7342,6 +7342,319 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Power_Protection:USBLC6-2SC6"
+			(pin_names (hide yes))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0.635 5.715 0)
+				(effects
+					(font (size 1.27 1.27))
+					(justify left)
+				)
+			)
+			(property "Value" "USBLC6-2SC6"
+				(at 0.635 3.81 0)
+				(effects
+					(font (size 1.27 1.27))
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+				(at 1.27 -6.35 0)
+				(effects
+					(font (size 1.27 1.27) (italic yes))
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
+				(at 1.27 -8.255 0)
+				(effects
+					(font (size 1.27 1.27))
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
+				(at 0 0 0)
+				(effects
+					(font (size 1.27 1.27))
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "usb ethernet video"
+				(at 0 0 0)
+				(effects
+					(font (size 1.27 1.27))
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(effects
+					(font (size 1.27 1.27))
+					(hide yes)
+				)
+			)
+			(symbol "USBLC6-2SC6_0_0"
+				(circle
+					(center -1.524 0)
+					(radius 0.0001)
+					(stroke (width 0.508) (type default))
+					(fill (type none))
+				)
+				(circle
+					(center -0.508 2.032)
+					(radius 0.0001)
+					(stroke (width 0.508) (type default))
+					(fill (type none))
+				)
+				(circle
+					(center -0.508 -4.572)
+					(radius 0.0001)
+					(stroke (width 0.508) (type default))
+					(fill (type none))
+				)
+				(circle
+					(center 0.508 2.032)
+					(radius 0.0001)
+					(stroke (width 0.508) (type default))
+					(fill (type none))
+				)
+				(circle
+					(center 0.508 -4.572)
+					(radius 0.0001)
+					(stroke (width 0.508) (type default))
+					(fill (type none))
+				)
+				(circle
+					(center 1.524 -2.54)
+					(radius 0.0001)
+					(stroke (width 0.508) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "USBLC6-2SC6_0_1"
+				(polyline
+					(pts (xy -2.54 0) (xy 2.54 0))
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 -2.54) (xy 2.54 -2.54))
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy -2.032 0.508)
+						(xy -1.016 0.508)
+						(xy -1.524 1.524)
+						(xy -2.032 0.508)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.032 -3.048) (xy -1.016 -3.048))
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -1.016 1.524) (xy -2.032 1.524))
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy -1.016 -4.064)
+						(xy -2.032 -4.064)
+						(xy -1.524 -3.048)
+						(xy -1.016 -4.064)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy -0.508 -1.143)
+						(xy -0.508 -0.762)
+						(xy 0.508 -0.762)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy 0 2.54)
+						(xy -0.508 2.032)
+						(xy 0.508 2.032)
+						(xy 0 1.524)
+						(xy 0 -4.064)
+						(xy -0.508 -4.572)
+						(xy 0.508 -4.572)
+						(xy 0 -5.08)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy 0.508 -1.778)
+						(xy -0.508 -1.778)
+						(xy 0 -0.762)
+						(xy 0.508 -1.778)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 1.016 1.524) (xy 2.032 1.524))
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 1.016 -3.048) (xy 2.032 -3.048))
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy 2.032 0.508)
+						(xy 1.016 0.508)
+						(xy 1.524 1.524)
+						(xy 2.032 0.508)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy 2.032 -4.064)
+						(xy 1.016 -4.064)
+						(xy 1.524 -3.048)
+						(xy 2.032 -4.064)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "USBLC6-2SC6_1_1"
+				(rectangle
+					(start -2.54 2.794)
+					(end 2.54 -5.334)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+				(polyline
+					(pts
+						(xy -0.508 2.032)
+						(xy -1.524 2.032)
+						(xy -1.524 -4.572)
+						(xy -0.508 -4.572)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts
+						(xy 0.508 -4.572)
+						(xy 1.524 -4.572)
+						(xy 1.524 2.032)
+						(xy 0.508 2.032)
+					)
+					(stroke (width 0) (type default))
+					(fill (type none))
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "I/O1"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "1"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 2.54)
+					(name "I/O2"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "3"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "VBUS"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "5"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "2"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "I/O1"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "6"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "I/O2"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "4"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Regulator_Linear:AP2112K-3.3"
 			(pin_names (offset 0.254))
 			(exclude_from_sim no)
@@ -10397,6 +10710,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Microchip"
+			(at 63.5 180.34 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C9785"
+			(at 63.5 180.34 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "HAND"
 			(at 63.5 180.34 0)
 			(effects
@@ -10636,7 +10963,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "(optional)"
+		(property "MPN" "DM254R-11-05-85"
+			(at 55.88 218.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DEALON"
+			(at 55.88 218.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2935976"
 			(at 55.88 218.44 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -10837,6 +11178,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 93.98 210.82 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 93.98 210.82 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 93.98 210.82 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 93.98 210.82 0)
 			(effects
@@ -10951,6 +11313,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1001T5E"
+			(at 93.98 233.68 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 93.98 233.68 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
+			(at 93.98 233.68 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 93.98 233.68 0)
 			(effects
@@ -11024,6 +11407,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 93.98 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "KT-0603G"
+			(at 93.98 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "KENTO"
+			(at 93.98 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C12624"
 			(at 93.98 254 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -11144,7 +11548,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74AHCT541PW"
+		(property "MPN" "74AHCT541PW,118"
+			(at 157.48 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 157.48 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C84548"
 			(at 157.48 60.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -11570,7 +11988,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74AHCT541PW"
+		(property "MPN" "74AHCT541PW,118"
+			(at 157.48 119.38 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 157.48 119.38 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C84548"
 			(at 157.48 119.38 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -11996,7 +12428,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74AHCT541PW"
+		(property "MPN" "74AHCT541PW,118"
+			(at 157.48 177.8 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 157.48 177.8 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C84548"
 			(at 157.48 177.8 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -12532,7 +12978,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74AHCT245PW"
+		(property "MPN" "74AHCT245PW,118"
+			(at 157.48 236.22 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 157.48 236.22 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C173388"
 			(at 157.48 236.22 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -12959,6 +13419,20 @@
 			)
 		)
 		(property "MPN" "AS6C4008-55SIN"
+			(at 256.54 86.36 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Alliance Memory"
+			(at 256.54 86.36 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1350086"
 			(at 256.54 86.36 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -13544,7 +14018,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Value" "74HCT157"
+		(property "Value" "74AHCT157"
 			(at 248.92 184.15 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -13564,7 +14038,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT157PW"
+		(property "MPN" "SN74AHCT157PWR"
+			(at 256.54 162.56 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 256.54 162.56 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2674471"
 			(at 256.54 162.56 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -13965,7 +14453,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT00PW"
+		(property "MPN" "74HCT00PW,118"
+			(at 228.6 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 228.6 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8206"
 			(at 228.6 205.74 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14066,7 +14568,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT00PW"
+		(property "MPN" "74HCT00PW,118"
+			(at 228.6 223.52 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 228.6 223.52 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8206"
 			(at 228.6 223.52 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14167,7 +14683,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT00PW"
+		(property "MPN" "74HCT00PW,118"
+			(at 228.6 241.3 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 228.6 241.3 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8206"
 			(at 228.6 241.3 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14268,7 +14798,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT00PW"
+		(property "MPN" "74HCT00PW,118"
+			(at 228.6 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 228.6 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8206"
 			(at 228.6 259.08 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14369,7 +14913,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT00PW"
+		(property "MPN" "74HCT00PW,118"
+			(at 205.74 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 205.74 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8206"
 			(at 205.74 259.08 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14525,7 +15083,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT32PW"
+		(property "MPN" "SN74HCT32PWR"
+			(at 287.02 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 287.02 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C132266"
 			(at 287.02 205.74 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14626,7 +15198,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT32PW"
+		(property "MPN" "SN74HCT32PWR"
+			(at 287.02 223.52 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 287.02 223.52 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C132266"
 			(at 287.02 223.52 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14727,7 +15313,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT32PW"
+		(property "MPN" "SN74HCT32PWR"
+			(at 287.02 241.3 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 287.02 241.3 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C132266"
 			(at 287.02 241.3 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14828,7 +15428,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT32PW"
+		(property "MPN" "SN74HCT32PWR"
+			(at 287.02 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 287.02 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C132266"
 			(at 287.02 259.08 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -14929,7 +15543,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT32PW"
+		(property "MPN" "SN74HCT32PWR"
+			(at 312.42 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 312.42 259.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C132266"
 			(at 312.42 259.08 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -15086,6 +15714,20 @@
 			)
 		)
 		(property "MPN" "74HCT595PW"
+			(at 360.68 55.88 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "MDD"
+			(at 360.68 55.88 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C54411086"
 			(at 360.68 55.88 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -15493,6 +16135,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "MDD"
+			(at 360.68 104.14 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C54411086"
+			(at 360.68 104.14 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 360.68 104.14 0)
 			(effects
@@ -15894,6 +16550,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "MDD"
+			(at 360.68 152.4 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C54411086"
+			(at 360.68 152.4 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 360.68 152.4 0)
 			(effects
@@ -16237,6 +16907,20 @@
 			)
 		)
 		(property "MPN" "74HCT595PW"
+			(at 360.68 200.66 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "MDD"
+			(at 360.68 200.66 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C54411086"
 			(at 360.68 200.66 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -16624,7 +17308,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT165PW"
+		(property "MPN" "74HCT165PW,118"
+			(at 360.68 248.92 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 360.68 248.92 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C547409"
 			(at 360.68 248.92 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -17054,6 +17752,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 452.12 45.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C352825"
+			(at 452.12 45.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 452.12 45.72 0)
 			(effects
@@ -17134,6 +17846,20 @@
 			)
 		)
 		(property "MPN" "CD74HC4050PWR"
+			(at 452.12 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 452.12 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C352825"
 			(at 452.12 60.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -17226,6 +17952,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 452.12 76.2 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C352825"
+			(at 452.12 76.2 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 452.12 76.2 0)
 			(effects
@@ -17312,6 +18052,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 452.12 91.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C352825"
+			(at 452.12 91.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 452.12 91.44 0)
 			(effects
@@ -17392,6 +18146,20 @@
 			)
 		)
 		(property "MPN" "CD74HC4050PWR"
+			(at 452.12 106.68 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 452.12 106.68 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C352825"
 			(at 452.12 106.68 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -17506,6 +18274,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 452.12 121.92 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C352825"
+			(at 452.12 121.92 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 452.12 121.92 0)
 			(effects
@@ -17608,6 +18390,20 @@
 			)
 		)
 		(property "MPN" "CD74HC4050PWR"
+			(at 482.6 83.82 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 482.6 83.82 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C352825"
 			(at 482.6 83.82 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -17763,6 +18559,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 414.02 101.6 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 414.02 101.6 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 414.02 101.6 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 414.02 101.6 0)
 			(effects
@@ -17878,6 +18695,20 @@
 			)
 		)
 		(property "MPN" "2N7002"
+			(at 449.58 157.48 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "JSCJ"
+			(at 449.58 157.48 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8545"
 			(at 449.58 157.48 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -18013,6 +18844,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1000T5E"
+			(at 419.1 165.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 419.1 165.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22775"
+			(at 419.1 165.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 419.1 165.1 0)
 			(effects
@@ -18086,6 +18938,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 431.8 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 431.8 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 431.8 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 431.8 205.74 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -18206,6 +19079,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 439.42 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 439.42 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 439.42 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 439.42 205.74 0)
 			(effects
@@ -18314,6 +19208,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 447.04 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 447.04 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 447.04 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 447.04 205.74 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -18434,6 +19349,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 454.66 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 454.66 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 454.66 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 454.66 205.74 0)
 			(effects
@@ -18542,6 +19478,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 462.28 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 462.28 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 462.28 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 462.28 205.74 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -18662,6 +19619,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 469.9 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 469.9 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 469.9 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 469.9 205.74 0)
 			(effects
@@ -18776,6 +19754,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 477.52 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 477.52 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 477.52 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 477.52 205.74 0)
 			(effects
@@ -18884,6 +19883,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 485.14 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 485.14 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 485.14 205.74 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 485.14 205.74 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -19005,6 +20025,20 @@
 			)
 		)
 		(property "MPN" "ESP32-S3-WROOM-1-N16R8"
+			(at 556.26 99.06 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Espressif"
+			(at 556.26 99.06 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2913202"
 			(at 556.26 99.06 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -19711,6 +20745,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 599.44 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 599.44 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 599.44 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 599.44 60.96 0)
 			(effects
@@ -19819,6 +20874,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 612.14 71.12 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10A105KB8NNNC"
+			(at 612.14 71.12 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 612.14 71.12 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15849"
 			(at 612.14 71.12 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -19939,7 +21015,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "PTS810SJM250SMTRLFS"
+		(property "MPN" "PTS810SJK250SMTRLFS"
+			(at 627.38 71.12 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "C&K"
+			(at 627.38 71.12 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C221896"
 			(at 627.38 71.12 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -20060,6 +21150,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 599.44 93.98 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 599.44 93.98 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 599.44 93.98 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 599.44 93.98 0)
 			(effects
@@ -20174,7 +21285,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "PTS810SJM250SMTRLFS"
+		(property "MPN" "PTS810SJK250SMTRLFS"
+			(at 627.38 104.14 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "C&K"
+			(at 627.38 104.14 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C221896"
 			(at 627.38 104.14 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -20295,6 +21420,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1001T5E"
+			(at 599.44 127 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 599.44 127 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
+			(at 599.44 127 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 599.44 127 0)
 			(effects
@@ -20368,6 +21514,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 612.14 139.7 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "KT-0603B"
+			(at 612.14 139.7 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "KENTO"
+			(at 612.14 139.7 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2288"
 			(at 612.14 139.7 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -20489,6 +21656,20 @@
 			)
 		)
 		(property "MPN" "DM3AT-SF-PEJM5"
+			(at 548.64 195.58 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Hirose"
+			(at 548.64 195.58 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C114218"
 			(at 548.64 195.58 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -20849,6 +22030,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 594.36 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 594.36 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 594.36 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 594.36 172.72 0)
 			(effects
@@ -20957,6 +22159,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 601.98 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 601.98 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 601.98 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 601.98 172.72 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -21077,6 +22300,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 609.6 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 609.6 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 609.6 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 609.6 172.72 0)
 			(effects
@@ -21191,6 +22435,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 617.22 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 617.22 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 617.22 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 617.22 172.72 0)
 			(effects
@@ -21299,6 +22564,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 624.84 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 624.84 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 624.84 172.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 624.84 172.72 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -21420,6 +22706,20 @@
 			)
 		)
 		(property "MPN" "TYPE-C-31-M-12"
+			(at 632.46 279.4 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "HRO"
+			(at 632.46 279.4 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C165948"
 			(at 632.46 279.4 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -21879,6 +23179,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF5101T5E"
+			(at 594.36 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 594.36 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23186"
+			(at 594.36 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 594.36 254 0)
 			(effects
@@ -21987,6 +23308,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 604.52 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF5101T5E"
+			(at 604.52 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 604.52 254 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23186"
 			(at 604.52 254 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22114,6 +23456,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Hottech"
+			(at 680.72 266.7 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C191023"
+			(at 680.72 266.7 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 680.72 266.7 0)
 			(effects
@@ -22158,6 +23514,208 @@
 		(uuid "62dd421c-6c58-5903-8a80-b94a7bcfa52d")
 	)
 	(symbol
+		(lib_id "Power_Protection:USBLC6-2SC6")
+		(at 675.64 309.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8c96a572-64d5-5b9a-9278-ec5a6346bf0f")
+		(property "Reference" "U23"
+			(at 676.28 304.16 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Value" "USBLC6-2SC6"
+			(at 676.28 306.07 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 676.91 316.23 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
+			(at 676.91 318.14 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Note" "USB ESD"
+			(at 675.64 309.88 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "USBLC6-2SC6"
+			(at 675.64 309.88 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "STMicroelectronics"
+			(at 675.64 309.88 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C7519"
+			(at 675.64 309.88 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Assembly" "JLC"
+			(at 675.64 309.88 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "05e4add5-fee3-55e3-b67d-c8a1489e02ca"))
+		(pin "2" (uuid "03afa738-9cbc-5729-ad54-291b1e32f17f"))
+		(pin "3" (uuid "752959f3-f005-51a6-bc9f-1fb580bf489b"))
+		(pin "4" (uuid "93458fbf-6d74-596b-ac38-66d401985d5c"))
+		(pin "5" (uuid "a4bca5af-bca4-5311-9c74-352322f3676b"))
+		(pin "6" (uuid "12b42733-6bc5-579c-b4b4-3b84d5ecdfb1"))
+		(instances
+			(project "WSNES_Proto"
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "U23") (unit 1))
+			)
+		)
+	)
+	(wire
+		(pts (xy 670.56 309.88) (xy 668.02 309.88))
+		(stroke (width 0) (type default))
+		(uuid "d7cf5561-2a27-5e56-9492-1940c85dd999")
+	)
+	(label "USB_DP"
+		(at 668.02 309.88 180)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify right bottom)
+		)
+		(uuid "faa2d316-ecde-53a8-9e4c-023f2c7aa608")
+	)
+	(wire
+		(pts (xy 670.56 312.42) (xy 668.02 312.42))
+		(stroke (width 0) (type default))
+		(uuid "9311ae37-ea59-57bf-bba7-a6d1e69fe839")
+	)
+	(label "USB_DN"
+		(at 668.02 312.42 180)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify right bottom)
+		)
+		(uuid "cb3fe208-6829-5ddc-a0f3-c1cf5844b7f6")
+	)
+	(wire
+		(pts (xy 675.64 304.8) (xy 675.64 302.26))
+		(stroke (width 0) (type default))
+		(uuid "d9619ed8-03d8-55bb-aa93-113761dfee72")
+	)
+	(label "VBUS"
+		(at 675.64 302.26 90)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left bottom)
+		)
+		(uuid "d0f9d511-5c39-56ba-bf4e-5729e7863168")
+	)
+	(wire
+		(pts (xy 675.64 317.5) (xy 675.64 320.04))
+		(stroke (width 0) (type default))
+		(uuid "27664c36-3a82-5c5f-8337-93bd13355c5b")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 675.64 320.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bd59699d-238e-59c2-90c0-4cc0fc2a7728")
+		(property "Reference" "#PWR089"
+			(at 675.64 326.39 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 675.64 323.85 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Footprint" ""
+			(at 675.64 320.04 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 675.64 320.04 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "e431c869-c63d-556a-8a8d-b36bd12112e9"))
+		(instances
+			(project "WSNES_Proto"
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR089") (unit 1))
+			)
+		)
+	)
+	(wire
+		(pts (xy 680.72 309.88) (xy 683.26 309.88))
+		(stroke (width 0) (type default))
+		(uuid "27dd552c-66d2-587a-931e-5f1921b28e9a")
+	)
+	(label "USB_DP"
+		(at 683.26 309.88 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left bottom)
+		)
+		(uuid "fdc8b599-6d8e-517e-93cf-976b993be841")
+	)
+	(wire
+		(pts (xy 680.72 312.42) (xy 683.26 312.42))
+		(stroke (width 0) (type default))
+		(uuid "fdecbadd-c8e2-5468-8542-2486cd9025c5")
+	)
+	(label "USB_DN"
+		(at 683.26 312.42 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left bottom)
+		)
+		(uuid "ab8426a6-d531-54b1-b4d4-9e3f1b6dfbce")
+	)
+	(symbol
 		(lib_id "Regulator_Linear:AP2112K-3.3")
 		(at 723.9 284.48 0)
 		(unit 1)
@@ -22194,6 +23752,20 @@
 			)
 		)
 		(property "MPN" "AP2112K-3.3TRG1"
+			(at 723.9 284.48 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diodes Inc."
+			(at 723.9 284.48 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C51118"
 			(at 723.9 284.48 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22261,7 +23833,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "738a04fb-6f57-53da-bcd4-d77a256b6487")
-		(property "Reference" "#PWR089"
+		(property "Reference" "#PWR090"
 			(at 723.9 300.99 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22291,7 +23863,7 @@
 		(pin "1" (uuid "564257b2-bd72-5332-8e78-80db7f69fc34"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR089") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR090") (unit 1))
 			)
 		)
 	)
@@ -22311,7 +23883,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4de94fdd-48a2-5f3c-a2e3-d839e08b3787")
-		(property "Reference" "#PWR090"
+		(property "Reference" "#PWR091"
 			(at 730.25 281.94 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22341,7 +23913,7 @@
 		(pin "1" (uuid "0dd9182a-c5e8-59a0-a9e2-62feacff5058"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR090") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR091") (unit 1))
 			)
 		)
 	)
@@ -22375,6 +23947,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 701.04 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL21A106KAYNNNE"
+			(at 701.04 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 701.04 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15850"
 			(at 701.04 299.72 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22425,7 +24018,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0088d8e3-27b2-5134-a972-a69c487d6da6")
-		(property "Reference" "#PWR091"
+		(property "Reference" "#PWR092"
 			(at 701.04 312.42 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22455,7 +24048,7 @@
 		(pin "1" (uuid "9170ad0e-c123-518f-9a35-f295ebef5df0"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR091") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR092") (unit 1))
 			)
 		)
 	)
@@ -22495,6 +24088,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL21A226MAQNNNE"
+			(at 749.3 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 749.3 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C45783"
+			(at 749.3 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 749.3 299.72 0)
 			(effects
@@ -22525,7 +24139,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eaf52bda-af1e-5c51-93fa-8696fdd1cb77")
-		(property "Reference" "#PWR092"
+		(property "Reference" "#PWR093"
 			(at 749.3 297.18 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22555,7 +24169,7 @@
 		(pin "1" (uuid "f326506e-6cf0-5e10-9256-d85ecccdc53b"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR092") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR093") (unit 1))
 			)
 		)
 	)
@@ -22574,7 +24188,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6ad925eb-b205-54c5-b524-b19899cc4cf8")
-		(property "Reference" "#PWR093"
+		(property "Reference" "#PWR094"
 			(at 749.3 312.42 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22604,7 +24218,7 @@
 		(pin "1" (uuid "c1889e17-80d5-5f2e-be21-295c2ae8bb9f"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR093") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR094") (unit 1))
 			)
 		)
 	)
@@ -22651,6 +24265,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 762 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 762 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 762 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 762 299.72 0)
 			(effects
@@ -22681,7 +24316,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f85dd74-b4a7-5759-a960-690ee4b96a80")
-		(property "Reference" "#PWR094"
+		(property "Reference" "#PWR095"
 			(at 762 297.18 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22711,7 +24346,7 @@
 		(pin "1" (uuid "a29ce3e5-ab85-593f-97ea-71b7c6bb968c"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR094") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR095") (unit 1))
 			)
 		)
 	)
@@ -22730,7 +24365,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e3390749-efa8-583c-ae34-42533866ab58")
-		(property "Reference" "#PWR095"
+		(property "Reference" "#PWR096"
 			(at 762 312.42 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22760,7 +24395,7 @@
 		(pin "1" (uuid "d3ec7a72-f560-5d79-847c-663671a6ccd5"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR095") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR096") (unit 1))
 			)
 		)
 	)
@@ -22807,6 +24442,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL21A106KAYNNNE"
+			(at 774.7 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 774.7 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15850"
+			(at 774.7 299.72 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 774.7 299.72 0)
 			(effects
@@ -22837,7 +24493,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3f81f4f9-577d-5f8b-963e-e2b35f989b08")
-		(property "Reference" "#PWR096"
+		(property "Reference" "#PWR097"
 			(at 774.7 297.18 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22867,7 +24523,7 @@
 		(pin "1" (uuid "8513c7ae-5755-5221-a60b-c137dbeef8a4"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR096") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR097") (unit 1))
 			)
 		)
 	)
@@ -22886,7 +24542,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f813e466-deaa-5b8f-810b-3e06e7a4f96e")
-		(property "Reference" "#PWR097"
+		(property "Reference" "#PWR098"
 			(at 774.7 312.42 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -22916,7 +24572,7 @@
 		(pin "1" (uuid "279d602c-5b5a-545e-9fe6-4d7c1f372243"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR097") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR098") (unit 1))
 			)
 		)
 	)
@@ -22956,7 +24612,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT138PW"
+		(property "MPN" "SN74HCT138PWR"
+			(at 175.26 391.16 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 175.26 391.16 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8115"
 			(at 175.26 391.16 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23091,7 +24761,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "72689cfa-d3a6-55af-9cbc-29068a9821c8")
-		(property "Reference" "#PWR098"
+		(property "Reference" "#PWR099"
 			(at 175.26 377.19 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23121,7 +24791,7 @@
 		(pin "1" (uuid "3bff68af-1d15-5505-93ae-82aec27dd293"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR098") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR099") (unit 1))
 			)
 		)
 	)
@@ -23140,7 +24810,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7a7dc5e9-eb72-52cf-9bbe-8c615737e9a9")
-		(property "Reference" "#PWR099"
+		(property "Reference" "#PWR100"
 			(at 175.26 412.75 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23170,7 +24840,7 @@
 		(pin "1" (uuid "82264052-7c57-5c8a-9358-3fd285e835de"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR099") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR100") (unit 1))
 			)
 		)
 	)
@@ -23231,7 +24901,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 243.84 365.76 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 243.84 365.76 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 243.84 365.76 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23332,7 +25016,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 243.84 383.54 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 243.84 383.54 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 243.84 383.54 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23433,7 +25131,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 243.84 401.32 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 243.84 401.32 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 243.84 401.32 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23534,7 +25246,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 243.84 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 243.84 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 243.84 419.1 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23572,7 +25298,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "32f7798f-d7e4-5761-b6ab-ad5d9ee09b97")
-		(property "Reference" "#PWR100"
+		(property "Reference" "#PWR101"
 			(at 227.33 416.56 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23602,7 +25328,7 @@
 		(pin "1" (uuid "f474a1a2-16d1-5a34-8d86-80c3b50d90d9"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR100") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR101") (unit 1))
 			)
 		)
 	)
@@ -23621,7 +25347,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f40d1758-0389-5c7e-bed2-78c72cc7b2af")
-		(property "Reference" "#PWR101"
+		(property "Reference" "#PWR102"
 			(at 227.33 421.64 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23651,7 +25377,7 @@
 		(pin "1" (uuid "be346523-ffaa-5366-a1ae-60191e402a81"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR101") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR102") (unit 1))
 			)
 		)
 	)
@@ -23692,7 +25418,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 220.98 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 220.98 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 220.98 419.1 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23729,7 +25469,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7857d21a-2c24-551e-9fc0-09bf80e83278")
-		(property "Reference" "#PWR102"
+		(property "Reference" "#PWR103"
 			(at 220.98 407.67 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23759,7 +25499,7 @@
 		(pin "1" (uuid "1b2adbd5-c15f-5149-9339-fc1bb4539905"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR102") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR103") (unit 1))
 			)
 		)
 	)
@@ -23778,7 +25518,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6497adef-fb28-51d0-a337-e4e3ab5a4a9a")
-		(property "Reference" "#PWR103"
+		(property "Reference" "#PWR104"
 			(at 220.98 440.69 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23808,7 +25548,7 @@
 		(pin "1" (uuid "a0ef50f8-5087-5927-bf6d-f7b6f39b57da"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR103") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR104") (unit 1))
 			)
 		)
 	)
@@ -23848,7 +25588,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 309.88 365.76 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 309.88 365.76 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 309.88 365.76 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -23949,7 +25703,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 309.88 383.54 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 309.88 383.54 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 309.88 383.54 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24050,7 +25818,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 309.88 401.32 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 309.88 401.32 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 309.88 401.32 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24151,7 +25933,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 309.88 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 309.88 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 309.88 419.1 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24252,7 +26048,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74HCT08PW"
+		(property "MPN" "SN74HCT08PWR"
+			(at 335.28 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 335.28 419.1 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C8181"
 			(at 335.28 419.1 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24289,7 +26099,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d1239c90-0b05-5d6e-8158-4e6f92616a5b")
-		(property "Reference" "#PWR104"
+		(property "Reference" "#PWR105"
 			(at 335.28 407.67 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24319,7 +26129,7 @@
 		(pin "1" (uuid "3815078c-e1c7-58ab-9666-834774bd0d4c"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR104") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR105") (unit 1))
 			)
 		)
 	)
@@ -24338,7 +26148,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c450577b-4e98-530b-854d-3d938b82106d")
-		(property "Reference" "#PWR105"
+		(property "Reference" "#PWR106"
 			(at 335.28 440.69 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24368,7 +26178,7 @@
 		(pin "1" (uuid "6944dbf4-e9e6-574c-85bc-5e566fe3228c"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR105") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR106") (unit 1))
 			)
 		)
 	)
@@ -24409,6 +26219,20 @@
 			)
 		)
 		(property "MPN" "AS6C1008-55SIN"
+			(at 83.82 408.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Alliance Memory"
+			(at 83.82 408.94 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1351203"
 			(at 83.82 408.94 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24489,7 +26313,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f49ee43-f2cf-5662-97c4-f1e9f54a56d4")
-		(property "Reference" "#PWR106"
+		(property "Reference" "#PWR107"
 			(at 83.82 443.23 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24519,7 +26343,7 @@
 		(pin "1" (uuid "1f08d56a-791f-5175-adfe-eb40e916587d"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR106") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR107") (unit 1))
 			)
 		)
 	)
@@ -24748,7 +26572,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f8682996-066b-5f10-a07a-d070936e11e8")
-		(property "Reference" "#PWR107"
+		(property "Reference" "#PWR108"
 			(at 62.23 426.72 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24778,7 +26602,7 @@
 		(pin "1" (uuid "e9fa1c15-61d8-51c2-bd94-b1d05028d106"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR107") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR108") (unit 1))
 			)
 		)
 	)
@@ -24797,7 +26621,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "36851077-7ba6-51ad-8609-3dc4cc4063e7")
-		(property "Reference" "#PWR108"
+		(property "Reference" "#PWR109"
 			(at 62.23 429.26 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -24827,7 +26651,7 @@
 		(pin "1" (uuid "d3bfc600-933a-5917-9a3a-53c433d85c42"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR108") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR109") (unit 1))
 			)
 		)
 	)
@@ -25043,6 +26867,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Microchip"
+			(at 172.72 462.28 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C134467"
+			(at 172.72 462.28 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 172.72 462.28 0)
 			(effects
@@ -25074,7 +26912,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e41bbf7d-563b-5cb2-8d79-9f18cd54e2bf")
-		(property "Reference" "#PWR109"
+		(property "Reference" "#PWR110"
 			(at 170.18 453.39 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25104,7 +26942,7 @@
 		(pin "1" (uuid "6e07194a-cd42-5fcf-bd9a-b899b1c59a33"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR109") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR110") (unit 1))
 			)
 		)
 	)
@@ -25123,7 +26961,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "63d60313-c7e4-5197-9de6-c365302f9a67")
-		(property "Reference" "#PWR110"
+		(property "Reference" "#PWR111"
 			(at 170.18 481.33 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25153,7 +26991,7 @@
 		(pin "1" (uuid "fefca1b0-c409-5455-9633-80f63cacbeab"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR110") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR111") (unit 1))
 			)
 		)
 	)
@@ -25201,6 +27039,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 198.12 462.28 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1001T5E"
+			(at 198.12 462.28 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 198.12 462.28 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
 			(at 198.12 462.28 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25286,6 +27145,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1003T5E"
+			(at 215.9 472.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 215.9 472.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25803"
+			(at 215.9 472.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 215.9 472.44 0)
 			(effects
@@ -25330,7 +27210,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "414b6dbc-d90f-5643-9e6b-a39daba82937")
-		(property "Reference" "#PWR111"
+		(property "Reference" "#PWR112"
 			(at 215.9 485.14 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25360,7 +27240,7 @@
 		(pin "1" (uuid "dc7a7829-2c4b-5c02-b3d0-72943814a8c6"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR111") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR112") (unit 1))
 			)
 		)
 	)
@@ -25407,6 +27287,20 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "High Diode"
+			(at 101.6 474.98 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C466637"
+			(at 101.6 474.98 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 101.6 474.98 0)
 			(effects
@@ -25438,7 +27332,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b294e5b8-1b12-5aa2-b098-1fc498cdb5ca")
-		(property "Reference" "#PWR112"
+		(property "Reference" "#PWR113"
 			(at 95.25 474.98 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25468,7 +27362,7 @@
 		(pin "1" (uuid "258e1fdf-1977-57cc-aa2d-8b8e54e140f6"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR112") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR113") (unit 1))
 			)
 		)
 	)
@@ -25530,6 +27424,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 76.2 505.46 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1001T5E"
+			(at 76.2 505.46 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 76.2 505.46 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
 			(at 76.2 505.46 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25615,7 +27530,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "BS-07-A1BJ001 + CR2032"
+		(property "MPN" "BS-07-A1BJ001"
+			(at 55.88 513.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "MYOUNG"
+			(at 55.88 513.08 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2979167"
 			(at 55.88 513.08 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25666,7 +27595,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0ecda384-0f48-5549-8903-74b4240def21")
-		(property "Reference" "#PWR113"
+		(property "Reference" "#PWR114"
 			(at 55.88 524.51 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25696,7 +27625,7 @@
 		(pin "1" (uuid "7a4aafba-3ad1-5972-8bda-9a5e9e5720fc"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR113") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR114") (unit 1))
 			)
 		)
 	)
@@ -25730,6 +27659,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 238.76 472.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1002T5E"
+			(at 238.76 472.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 238.76 472.44 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 238.76 472.44 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25780,7 +27730,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ffefaa96-1192-59ed-826c-c80f3b2f40d3")
-		(property "Reference" "#PWR114"
+		(property "Reference" "#PWR115"
 			(at 238.76 485.14 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25810,7 +27760,7 @@
 		(pin "1" (uuid "d5454531-7f32-5b13-a05c-d10bf9e9e678"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR114") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR115") (unit 1))
 			)
 		)
 	)
@@ -25851,6 +27801,20 @@
 			)
 		)
 		(property "MPN" "1N5819WS"
+			(at 50.8 314.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Hottech"
+			(at 50.8 314.96 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C191023"
 			(at 50.8 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25901,7 +27865,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1da36cc5-31f7-52a0-8c8b-8aa7de1af406")
-		(property "Reference" "#PWR115"
+		(property "Reference" "#PWR116"
 			(at 53.34 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -25931,7 +27895,7 @@
 		(pin "1" (uuid "e2681fcd-cc13-5afd-ae56-f2a8fc53f8a1"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR115") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR116") (unit 1))
 			)
 		)
 	)
@@ -25965,6 +27929,27 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 76.2 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL31A226KAHNNNE"
+			(at 76.2 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 76.2 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C12891"
 			(at 76.2 317.5 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26015,7 +28000,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c6e36412-25a8-51b7-b092-d4359a2baf9e")
-		(property "Reference" "#PWR116"
+		(property "Reference" "#PWR117"
 			(at 76.2 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26045,7 +28030,7 @@
 		(pin "1" (uuid "7a348e81-782a-515c-a071-adfbd29251e2"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR116") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR117") (unit 1))
 			)
 		)
 	)
@@ -26085,6 +28070,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL31A226KAHNNNE"
+			(at 93.98 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 93.98 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C12891"
+			(at 93.98 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 93.98 317.5 0)
 			(effects
@@ -26115,7 +28121,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "64e0054c-2c1e-5ea1-b1cc-2d4e2653db05")
-		(property "Reference" "#PWR117"
+		(property "Reference" "#PWR118"
 			(at 93.98 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26145,7 +28151,7 @@
 		(pin "1" (uuid "11cf97d9-94cf-5a58-b48f-c677ad8239b7"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR117") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR118") (unit 1))
 			)
 		)
 	)
@@ -26164,7 +28170,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "907018de-40c5-5122-a409-502769a40c6d")
-		(property "Reference" "#PWR118"
+		(property "Reference" "#PWR119"
 			(at 93.98 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26194,7 +28200,7 @@
 		(pin "1" (uuid "a3a90c9d-9972-5a52-8d9a-d24270b9eec0"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR118") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR119") (unit 1))
 			)
 		)
 	)
@@ -26234,6 +28240,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0603WAF1001T5E"
+			(at 111.76 307.34 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 111.76 307.34 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
+			(at 111.76 307.34 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 111.76 307.34 0)
 			(effects
@@ -26264,7 +28291,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d6b612fa-1072-5b32-8b6e-b1e380e8e301")
-		(property "Reference" "#PWR119"
+		(property "Reference" "#PWR120"
 			(at 111.76 304.8 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26294,7 +28321,7 @@
 		(pin "1" (uuid "ef48b7d1-2b2f-53d9-a7d0-a1dfb4210dca"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR119") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR120") (unit 1))
 			)
 		)
 	)
@@ -26348,6 +28375,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "KT-0603R"
+			(at 111.76 327.66 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "KENTO"
+			(at 111.76 327.66 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2286"
+			(at 111.76 327.66 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 111.76 327.66 0)
 			(effects
@@ -26378,7 +28426,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a9f114b0-f615-5e95-8d62-87b829a83531")
-		(property "Reference" "#PWR120"
+		(property "Reference" "#PWR121"
 			(at 99.06 327.66 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26408,7 +28456,7 @@
 		(pin "1" (uuid "da4cb0c4-aa3f-5541-9286-a73325195988"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR120") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR121") (unit 1))
 			)
 		)
 	)
@@ -26469,6 +28517,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 139.7 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 139.7 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 139.7 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 139.7 317.5 0)
 			(effects
@@ -26499,7 +28568,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2b21bf51-3867-5bb3-a56e-0a3f3a1927b4")
-		(property "Reference" "#PWR121"
+		(property "Reference" "#PWR122"
 			(at 139.7 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26529,7 +28598,7 @@
 		(pin "1" (uuid "3afca219-d58a-539b-85be-8166c56a81fc"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR121") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR122") (unit 1))
 			)
 		)
 	)
@@ -26548,7 +28617,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19bf7396-1c8e-5b43-954e-686090d55355")
-		(property "Reference" "#PWR122"
+		(property "Reference" "#PWR123"
 			(at 139.7 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26578,7 +28647,7 @@
 		(pin "1" (uuid "340a6743-b90d-5425-a274-c3335dde6a7e"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR122") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR123") (unit 1))
 			)
 		)
 	)
@@ -26625,6 +28694,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 154.94 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 154.94 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 154.94 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 154.94 317.5 0)
 			(effects
@@ -26655,7 +28745,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "493cab83-c0f3-5aca-9ab4-947fbadbdd82")
-		(property "Reference" "#PWR123"
+		(property "Reference" "#PWR124"
 			(at 154.94 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26685,7 +28775,7 @@
 		(pin "1" (uuid "78b3e4fc-407c-5d14-bceb-a687e2f12068"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR123") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR124") (unit 1))
 			)
 		)
 	)
@@ -26704,7 +28794,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fab91544-1d4a-5519-b7b3-ef851826f7f8")
-		(property "Reference" "#PWR124"
+		(property "Reference" "#PWR125"
 			(at 154.94 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26734,7 +28824,7 @@
 		(pin "1" (uuid "c6f3c2ca-231d-5c24-bdbf-29d2a9f55ffe"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR124") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR125") (unit 1))
 			)
 		)
 	)
@@ -26781,6 +28871,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 170.18 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 170.18 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 170.18 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 170.18 317.5 0)
 			(effects
@@ -26811,7 +28922,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "063afb0b-b6d3-5c6f-abdc-71b5b475dd7e")
-		(property "Reference" "#PWR125"
+		(property "Reference" "#PWR126"
 			(at 170.18 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26841,7 +28952,7 @@
 		(pin "1" (uuid "12bd274d-6517-513c-b037-f8abd67b1701"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR125") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR126") (unit 1))
 			)
 		)
 	)
@@ -26860,7 +28971,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "59f1a98b-26fe-5d61-989d-6fc01a43d552")
-		(property "Reference" "#PWR126"
+		(property "Reference" "#PWR127"
 			(at 170.18 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26890,7 +29001,7 @@
 		(pin "1" (uuid "ab47193d-216c-5aea-9212-bcf5c09b8bd1"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR126") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR127") (unit 1))
 			)
 		)
 	)
@@ -26937,6 +29048,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 185.42 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 185.42 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 185.42 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 185.42 317.5 0)
 			(effects
@@ -26967,7 +29099,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "60077e17-cfad-5af5-a112-abc0a3383ede")
-		(property "Reference" "#PWR127"
+		(property "Reference" "#PWR128"
 			(at 185.42 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -26997,7 +29129,7 @@
 		(pin "1" (uuid "4f423555-5c88-5e75-9c0a-a74d51d4eb69"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR127") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR128") (unit 1))
 			)
 		)
 	)
@@ -27016,7 +29148,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3bce2b51-d2d9-518d-98e6-73173b7d9aa0")
-		(property "Reference" "#PWR128"
+		(property "Reference" "#PWR129"
 			(at 185.42 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27046,7 +29178,7 @@
 		(pin "1" (uuid "c6e4b269-11e2-5a06-b839-ae8e4cecdee9"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR128") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR129") (unit 1))
 			)
 		)
 	)
@@ -27093,6 +29225,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 200.66 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 200.66 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 200.66 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 200.66 317.5 0)
 			(effects
@@ -27123,7 +29276,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b1532071-41e5-5d7c-b902-0d0993e484dd")
-		(property "Reference" "#PWR129"
+		(property "Reference" "#PWR130"
 			(at 200.66 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27153,7 +29306,7 @@
 		(pin "1" (uuid "fed65c2f-c411-574e-b6ff-6193e1bb5f3b"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR129") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR130") (unit 1))
 			)
 		)
 	)
@@ -27172,7 +29325,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "478e6241-6f13-5397-afc8-bf427a955443")
-		(property "Reference" "#PWR130"
+		(property "Reference" "#PWR131"
 			(at 200.66 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27202,7 +29355,7 @@
 		(pin "1" (uuid "f4d4fd09-2e28-59db-8ee0-38c7cb271612"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR130") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR131") (unit 1))
 			)
 		)
 	)
@@ -27249,6 +29402,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 215.9 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 215.9 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 215.9 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 215.9 317.5 0)
 			(effects
@@ -27279,7 +29453,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6029a7fd-16f7-59d7-b3d6-e1c8d0946d2d")
-		(property "Reference" "#PWR131"
+		(property "Reference" "#PWR132"
 			(at 215.9 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27309,7 +29483,7 @@
 		(pin "1" (uuid "873014b5-6f83-59ac-9b9d-263f9ab1120d"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR131") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR132") (unit 1))
 			)
 		)
 	)
@@ -27328,7 +29502,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "72e20aef-0c65-57d0-b429-213498bc1172")
-		(property "Reference" "#PWR132"
+		(property "Reference" "#PWR133"
 			(at 215.9 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27358,7 +29532,7 @@
 		(pin "1" (uuid "b627b12f-b97a-503a-bb78-cabe224ab426"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR132") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR133") (unit 1))
 			)
 		)
 	)
@@ -27405,6 +29579,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 231.14 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 231.14 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 231.14 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 231.14 317.5 0)
 			(effects
@@ -27435,7 +29630,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "affb464e-5b12-5fe8-9f38-3addba8cfe97")
-		(property "Reference" "#PWR133"
+		(property "Reference" "#PWR134"
 			(at 231.14 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27465,7 +29660,7 @@
 		(pin "1" (uuid "bc746fec-3142-5c6f-a554-bd932c7bcc49"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR133") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR134") (unit 1))
 			)
 		)
 	)
@@ -27484,7 +29679,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "99c1e966-01c0-585e-ab35-7ca5d1f44e89")
-		(property "Reference" "#PWR134"
+		(property "Reference" "#PWR135"
 			(at 231.14 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27514,7 +29709,7 @@
 		(pin "1" (uuid "da0719bd-8279-54b2-8f71-2df12f7926e2"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR134") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR135") (unit 1))
 			)
 		)
 	)
@@ -27561,6 +29756,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 246.38 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 246.38 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 246.38 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 246.38 317.5 0)
 			(effects
@@ -27591,7 +29807,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5d060725-80c4-5227-9ef2-5d6611fb8e57")
-		(property "Reference" "#PWR135"
+		(property "Reference" "#PWR136"
 			(at 246.38 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27621,7 +29837,7 @@
 		(pin "1" (uuid "9f1390db-ce6c-5e0d-807c-3feae7d10c9a"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR135") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR136") (unit 1))
 			)
 		)
 	)
@@ -27640,7 +29856,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "392b1572-99c2-5516-9066-7e06983d814b")
-		(property "Reference" "#PWR136"
+		(property "Reference" "#PWR137"
 			(at 246.38 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27670,7 +29886,7 @@
 		(pin "1" (uuid "68850592-80b3-5881-a750-e4036147ea0b"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR136") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR137") (unit 1))
 			)
 		)
 	)
@@ -27717,6 +29933,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 261.62 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 261.62 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 261.62 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 261.62 317.5 0)
 			(effects
@@ -27747,7 +29984,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4dede372-6503-5b2d-9606-2ac595128a6a")
-		(property "Reference" "#PWR137"
+		(property "Reference" "#PWR138"
 			(at 261.62 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27777,7 +30014,7 @@
 		(pin "1" (uuid "4c4240a9-b386-54de-8eea-3946d98beee3"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR137") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR138") (unit 1))
 			)
 		)
 	)
@@ -27796,7 +30033,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "aabe0047-45b0-5f2b-892f-de41fc9fa126")
-		(property "Reference" "#PWR138"
+		(property "Reference" "#PWR139"
 			(at 261.62 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27826,7 +30063,7 @@
 		(pin "1" (uuid "2d9c12e9-5d2a-5f32-b2ac-08727ffd5b0e"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR138") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR139") (unit 1))
 			)
 		)
 	)
@@ -27873,6 +30110,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 276.86 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 276.86 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 276.86 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 276.86 317.5 0)
 			(effects
@@ -27903,7 +30161,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2091f6a9-9839-5b31-8e2b-3d472f5721ea")
-		(property "Reference" "#PWR139"
+		(property "Reference" "#PWR140"
 			(at 276.86 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27933,7 +30191,7 @@
 		(pin "1" (uuid "0eb8550b-ecef-5338-bd09-81b59aad74fa"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR139") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR140") (unit 1))
 			)
 		)
 	)
@@ -27952,7 +30210,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9831a69f-2669-5d86-8dbc-74f7540e0fcc")
-		(property "Reference" "#PWR140"
+		(property "Reference" "#PWR141"
 			(at 276.86 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -27982,7 +30240,7 @@
 		(pin "1" (uuid "3648fd5d-2154-5bd8-9bec-8fd4d06f871f"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR140") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR141") (unit 1))
 			)
 		)
 	)
@@ -28029,6 +30287,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 292.1 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 292.1 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 292.1 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 292.1 317.5 0)
 			(effects
@@ -28059,7 +30338,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f5da8e82-6221-5368-b6d0-907704c7e8ba")
-		(property "Reference" "#PWR141"
+		(property "Reference" "#PWR142"
 			(at 292.1 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28089,7 +30368,7 @@
 		(pin "1" (uuid "cf243705-9377-5fbd-b284-f96d1cd70ea1"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR141") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR142") (unit 1))
 			)
 		)
 	)
@@ -28108,7 +30387,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6662f0f4-bdc9-5bee-bcad-7ef3e2e3aaea")
-		(property "Reference" "#PWR142"
+		(property "Reference" "#PWR143"
 			(at 292.1 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28138,7 +30417,7 @@
 		(pin "1" (uuid "a93fb6a5-fef6-53b4-a1b4-2b99fe3671e7"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR142") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR143") (unit 1))
 			)
 		)
 	)
@@ -28185,6 +30464,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 307.34 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 307.34 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 307.34 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 307.34 317.5 0)
 			(effects
@@ -28215,7 +30515,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d0d0af1e-8915-5941-bd75-1d6d3e62dcdd")
-		(property "Reference" "#PWR143"
+		(property "Reference" "#PWR144"
 			(at 307.34 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28245,7 +30545,7 @@
 		(pin "1" (uuid "0a4ecb63-0f09-50a1-97dc-9da36e7d5129"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR143") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR144") (unit 1))
 			)
 		)
 	)
@@ -28264,7 +30564,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0ad6c894-25b1-51c2-b8d1-61fb77d54168")
-		(property "Reference" "#PWR144"
+		(property "Reference" "#PWR145"
 			(at 307.34 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28294,7 +30594,7 @@
 		(pin "1" (uuid "4720a1ab-e33b-5f30-86c1-a48ab560bdac"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR144") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR145") (unit 1))
 			)
 		)
 	)
@@ -28341,6 +30641,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 322.58 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 322.58 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 322.58 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 322.58 317.5 0)
 			(effects
@@ -28371,7 +30692,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e555b923-90f5-5733-bd25-e36f952e7f41")
-		(property "Reference" "#PWR145"
+		(property "Reference" "#PWR146"
 			(at 322.58 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28401,7 +30722,7 @@
 		(pin "1" (uuid "5297adf7-475a-5eb4-8d71-3e258c06ad0d"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR145") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR146") (unit 1))
 			)
 		)
 	)
@@ -28420,7 +30741,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e97b737b-edce-5b25-8393-649014ec7a55")
-		(property "Reference" "#PWR146"
+		(property "Reference" "#PWR147"
 			(at 322.58 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28450,7 +30771,7 @@
 		(pin "1" (uuid "43ec592a-71ce-57c5-8469-15dea65d2683"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR146") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR147") (unit 1))
 			)
 		)
 	)
@@ -28497,6 +30818,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 337.82 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 337.82 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 337.82 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 337.82 317.5 0)
 			(effects
@@ -28527,7 +30869,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f926205-3410-59ad-980d-a2877de80145")
-		(property "Reference" "#PWR147"
+		(property "Reference" "#PWR148"
 			(at 337.82 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28557,7 +30899,7 @@
 		(pin "1" (uuid "9b5b038e-d3d5-5d16-b5d0-e2e3e89c51ac"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR147") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR148") (unit 1))
 			)
 		)
 	)
@@ -28576,7 +30918,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e40fb647-8dc6-5aef-b7c2-8ac599e5f76f")
-		(property "Reference" "#PWR148"
+		(property "Reference" "#PWR149"
 			(at 337.82 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28606,7 +30948,7 @@
 		(pin "1" (uuid "5dfa09e8-3bb2-57a1-9482-17fb35009b19"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR148") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR149") (unit 1))
 			)
 		)
 	)
@@ -28653,6 +30995,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 353.06 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 353.06 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 353.06 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 353.06 317.5 0)
 			(effects
@@ -28683,7 +31046,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8dfe97c2-b7cc-590a-bf1e-8cdcada51310")
-		(property "Reference" "#PWR149"
+		(property "Reference" "#PWR150"
 			(at 353.06 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28713,7 +31076,7 @@
 		(pin "1" (uuid "108b7e36-22d4-5f55-b005-996fb87c7bb5"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR149") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR150") (unit 1))
 			)
 		)
 	)
@@ -28732,7 +31095,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "66155740-0b3d-5f57-a5aa-ebe415087632")
-		(property "Reference" "#PWR150"
+		(property "Reference" "#PWR151"
 			(at 353.06 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28762,7 +31125,7 @@
 		(pin "1" (uuid "cdc3cbbf-d200-551a-965f-532f5b4d264b"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR150") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR151") (unit 1))
 			)
 		)
 	)
@@ -28803,6 +31166,27 @@
 			)
 		)
 		(property "Note" "decouples U16"
+			(at 368.3 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 368.3 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 368.3 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 368.3 317.5 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28853,7 +31237,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f714558b-5b5d-5260-9753-c987c0296d93")
-		(property "Reference" "#PWR151"
+		(property "Reference" "#PWR152"
 			(at 368.3 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28883,7 +31267,7 @@
 		(pin "1" (uuid "2ae48fae-98ec-5281-8b1c-63c2bfcf0a58"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR151") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR152") (unit 1))
 			)
 		)
 	)
@@ -28930,6 +31314,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 383.54 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 383.54 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 383.54 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 383.54 317.5 0)
 			(effects
@@ -28960,7 +31365,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4005f483-3205-56a4-861b-1c7234e02327")
-		(property "Reference" "#PWR152"
+		(property "Reference" "#PWR153"
 			(at 383.54 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -28990,7 +31395,7 @@
 		(pin "1" (uuid "2ca150ca-6eaf-5b78-9483-b19ad7600d6c"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR152") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR153") (unit 1))
 			)
 		)
 	)
@@ -29009,7 +31414,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1da6b7bc-c1a9-5b11-a1bd-e21c2fb21f61")
-		(property "Reference" "#PWR153"
+		(property "Reference" "#PWR154"
 			(at 383.54 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -29039,7 +31444,7 @@
 		(pin "1" (uuid "3bd14389-ed33-5426-a90d-309017d7e67f"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR153") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR154") (unit 1))
 			)
 		)
 	)
@@ -29086,6 +31491,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 398.78 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 398.78 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 398.78 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 398.78 317.5 0)
 			(effects
@@ -29116,7 +31542,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8ffa47f7-4773-5e5a-84c8-7c54f75ba4e6")
-		(property "Reference" "#PWR154"
+		(property "Reference" "#PWR155"
 			(at 398.78 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -29146,7 +31572,7 @@
 		(pin "1" (uuid "d77361dc-3382-5140-bdaa-e87f1f8b0f8e"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR154") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR155") (unit 1))
 			)
 		)
 	)
@@ -29165,7 +31591,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dcb124cd-e5a4-55f4-9681-9e1ff7311a1d")
-		(property "Reference" "#PWR155"
+		(property "Reference" "#PWR156"
 			(at 398.78 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -29195,7 +31621,7 @@
 		(pin "1" (uuid "5b3ffd42-1fac-5db6-95bd-c5fe18b4487c"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR155") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR156") (unit 1))
 			)
 		)
 	)
@@ -29242,6 +31668,27 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 414.02 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 414.02 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 414.02 317.5 0)
+			(effects
+				(font (size 1.27 1.27))
+				(hide yes)
+			)
+		)
 		(property "Assembly" "JLC"
 			(at 414.02 317.5 0)
 			(effects
@@ -29272,7 +31719,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56cbd769-cb08-5867-8b79-eb1831be89a0")
-		(property "Reference" "#PWR156"
+		(property "Reference" "#PWR157"
 			(at 414.02 314.96 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -29302,7 +31749,7 @@
 		(pin "1" (uuid "e86580d0-3b8c-58b0-809d-b90b2048f46e"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR156") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR157") (unit 1))
 			)
 		)
 	)
@@ -29321,7 +31768,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fc2e0462-842b-5073-bb42-a12a46258ba1")
-		(property "Reference" "#PWR157"
+		(property "Reference" "#PWR158"
 			(at 414.02 330.2 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -29351,7 +31798,7 @@
 		(pin "1" (uuid "a0f1d845-2666-53c7-8cc2-9f150cca697d"))
 		(instances
 			(project "WSNES_Proto"
-				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR157") (unit 1))
+				(path "/374206fa-9bd8-5780-a96f-bcc6691c29df" (reference "#PWR158") (unit 1))
 			)
 		)
 	)

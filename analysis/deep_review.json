@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0",
+  "produced_for_run_id": "2026-11-17_1118",
+  "produced_at": "2026-11-17T11:45:00+01:00",
+  "findings": [
+    {
+      "detector": "deep_review",
+      "category": "environmental",
+      "severity": "warning",
+      "confidence": "high",
+      "summary": "ESP32-S3-WROOM-1-N16R8 (octal PSRAM) is rated for -40..65 C ambient only",
+      "description": "R8/R16V modules have a lower ambient rating than other WROOM-1 variants. Inside a closed cartridge shell in a warm console, with U22 dissipating up to ~0.3 W about 15 mm away, the module's ambient can approach this limit.",
+      "recommendation": "Keep in mind for the housing (vent slots near U21/U22 or avoid sealing it airtight); do not enable PSRAM ECC, which lowers the limit further.",
+      "evidence": {
+        "components": [
+          "U21"
+        ],
+        "datasheet": [
+          {
+            "mpn": "ESP32-S3-WROOM-1-N16R8",
+            "page": 3,
+            "quote": "65 \u00b0C ambient temperature"
+          }
+        ]
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U21"
+      ],
+      "finding_id": "deep_review:5a8288953e51"
+    },
+    {
+      "detector": "deep_review",
+      "category": "interface",
+      "severity": "warning",
+      "confidence": "low",
+      "summary": "Q1 pulls the console's /RESET (cart pin 26) low by default; safe only if the console drives that line open-drain or through a resistor",
+      "description": "R16 pulls RST_GATE to +3V3, so Q1 conducts whenever +3V3 is up and GPIO17 is not driven low, including during ESP boot. If the SNES drives cart /RESET push-pull, Q1 fights that driver with no series resistance.",
+      "recommendation": "Before the production run, confirm the console-side /RESET driver type on a real console (for example, pull pin 26 low through 100 ohm and measure the current). If it is push-pull, add a series resistor in Q1's drain or reset via the CIC instead.",
+      "evidence": {
+        "components": [
+          "Q1",
+          "R16"
+        ],
+        "nets": [
+          "/SNES_RESET_N",
+          "/RST_GATE"
+        ],
+        "computation": {
+          "description": "Net membership from analysis/2026-11-17_1118/schematic.json",
+          "result": "RST_GATE = {Q1.G, R1, R16}; R16.1 on +3V3; SNES_RESET_N = {P1./RESET, Q1.D, U14 input}"
+        }
+      },
+      "evidence_checked": "partial",
+      "components": [
+        "Q1",
+        "R16"
+      ],
+      "nets": [
+        "/SNES_RESET_N",
+        "/RST_GATE"
+      ],
+      "finding_id": "deep_review:4db6df767f25"
+    },
+    {
+      "detector": "deep_review",
+      "category": "manufacturing",
+      "severity": "error",
+      "confidence": "high",
+      "summary": "Zone copper fills the gold-finger tab on all four layers: GND slivers between fingers and a continuous copper bar at the bevelled tip",
+      "description": "F.Cu/B.Cu GND pour sits in 22 of 23 finger gaps and along the tip strip below the fingers; In1 (GND) and In2 (+5V) planes fill the whole tab up to 0.3 mm from the bevelled edge. A 45 deg bevel on 1.2 mm board grinds into the tip strip and approaches the inner planes; console slot contacts slide over this area on every insertion.",
+      "recommendation": "Add a rule area (no copper pour; tracks and pads allowed) on F.Cu, In1.Cu, In2.Cu and B.Cu covering the tab (x 120..180, y >= ~154), refill zones, re-run DRC.",
+      "evidence": {
+        "components": [
+          "P1"
+        ],
+        "nets": [
+          "GND",
+          "+5V"
+        ],
+        "computation": {
+          "description": "Clip stored zone fill polygons to the tab rectangle and sample finger gaps (y=160) and the tip strip (y=164.0)",
+          "script": "analysis/helpers/tab_copper.py",
+          "result": "F.Cu 184.8 mm2 in tab, 22/23 gaps, 23/23 tip; In1 592.4 mm2, 23/23, 23/23; In2 599.7 mm2, 23/23, 23/23; B.Cu 190.8 mm2, 22/23, 23/23; 33-41 mm2 per layer within 1 mm of the tip"
+        }
+      },
+      "evidence_checked": "partial",
+      "components": [
+        "P1"
+      ],
+      "nets": [
+        "GND",
+        "+5V"
+      ],
+      "finding_id": "deep_review:88827e06d0c2"
+    },
+    {
+      "detector": "deep_review",
+      "category": "pin_usage",
+      "severity": "info",
+      "confidence": "high",
+      "summary": "ESP32-S3 octal-PSRAM pins IO35/IO36/IO37 are correctly left unconnected; strapping pins IO3/IO45/IO46 also NC",
+      "evidence": {
+        "components": [
+          "U21"
+        ],
+        "pins": [
+          "U21.28",
+          "U21.29",
+          "U21.30"
+        ],
+        "datasheet": [
+          {
+            "mpn": "ESP32-S3-WROOM-1-N16R8",
+            "page": 12,
+            "quote": "pins IO35, IO36, and IO37 are connected to the Octal SPI PSRAM and are not available for other"
+          }
+        ]
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U21"
+      ],
+      "pins": [
+        "U21.28",
+        "U21.29",
+        "U21.30"
+      ],
+      "finding_id": "deep_review:a9acd79ec226"
+    },
+    {
+      "detector": "deep_review",
+      "category": "pinout",
+      "severity": "info",
+      "confidence": "high",
+      "summary": "Q1 2N7002 SOT-23 pad map G=1, S=2, D=3 matches the datasheet",
+      "evidence": {
+        "components": [
+          "Q1"
+        ],
+        "pins": [
+          "Q1.1",
+          "Q1.2",
+          "Q1.3"
+        ],
+        "datasheet": [
+          {
+            "mpn": "2N7002",
+            "page": 1,
+            "quote": "1 \u2212 Gate"
+          }
+        ]
+      },
+      "evidence_checked": "full",
+      "components": [
+        "Q1"
+      ],
+      "pins": [
+        "Q1.1",
+        "Q1.2",
+        "Q1.3"
+      ],
+      "finding_id": "deep_review:257acd98a539"
+    },
+    {
+      "detector": "deep_review",
+      "category": "reset",
+      "severity": "info",
+      "confidence": "high",
+      "summary": "ESP32 EN RC delay R25 10k / C22 1uF matches the Espressif recommendation",
+      "evidence": {
+        "components": [
+          "R25",
+          "C22"
+        ],
+        "nets": [
+          "/ESP_EN"
+        ],
+        "datasheet": [
+          {
+            "mpn": "ESP32-S3-WROOM-1-N16R8",
+            "page": 41,
+            "quote": "The recommended setting for the RC delay circuit is usually R = 10 k\u03a9 and"
+          }
+        ]
+      },
+      "evidence_checked": "full",
+      "components": [
+        "R25",
+        "C22"
+      ],
+      "nets": [
+        "/ESP_EN"
+      ],
+      "finding_id": "deep_review:d92e4dd8cce3"
+    },
+    {
+      "detector": "deep_review",
+      "category": "thermal",
+      "severity": "info",
+      "confidence": "medium",
+      "summary": "U22 AP2112K-3.3 junction temperature is fine for realistic ESP32-S3 loads, marginal only for sustained 500 mA",
+      "description": "VIN is about 4.6 V after the 1N5819WS OR-ing diode. With the datasheet theta_JA of 184 C/W (no heatsink), 250 mA gives Tj ~100 C at 40 C ambient; a sustained 500 mA would exceed 150 C. WiFi TX peaks are bursts, and the GND pour lowers the real theta_JA.",
+      "recommendation": "No change needed for normal use. Cap WiFi TX power in firmware if long transfers run inside a closed shell.",
+      "evidence": {
+        "components": [
+          "U22"
+        ],
+        "nets": [
+          "/ESP_5V",
+          "+3V3"
+        ],
+        "datasheet": [
+          {
+            "mpn": "AP2112K-3.3TRG1",
+            "page": 3,
+            "quote": "Thermal Resistance (Junction to Ambient)(No Heatsink)"
+          },
+          {
+            "mpn": "AP2112K-3.3TRG1",
+            "page": 1,
+            "quote": "Output Current: 600mA (Min.)"
+          }
+        ],
+        "computation": {
+          "description": "Tj = Ta + (VIN - 3.3 V) * I * 184 C/W, VIN = 5.0 V - 0.40 V",
+          "script": "analysis/helpers/ldo_thermal.py",
+          "result": "Ta 40 C: 150 mA -> 75.9 C, 250 mA -> 99.8 C, 500 mA sustained -> 159.6 C (over 150 C)"
+        }
+      },
+      "evidence_checked": "partial",
+      "components": [
+        "U22"
+      ],
+      "nets": [
+        "/ESP_5V",
+        "+3V3"
+      ],
+      "finding_id": "deep_review:5dc09dfa2faf"
+    }
+  ],
+  "quarantined": []
+}

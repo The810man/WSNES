@@ -7,8 +7,8 @@ v0.3 fits the standard SNES cartridge PCB outline: 112.2 × 66.7 mm plus the 11.
 
 | | |
 |---|---|
-| Schematic | `WSNES_Proto.kicad_sch`. ERC: 0 errors, 0 warnings. All 590 pins checked against the design table. |
-| PCB | `WSNES_Proto.kicad_pcb`: 89 parts, **fully routed**. DRC (KiCad 10, 2026-11-17): 0 errors, 0 unconnected, schematic parity 0. See [DRC status](#drc-status). |
+| Schematic | `WSNES_Proto.kicad_sch`. ERC: 0 errors, 0 warnings. All 596 pins checked against the design table. |
+| PCB | `WSNES_Proto.kicad_pcb`: 90 parts, **fully routed**, zones filled. DRC (KiCad 10.0.8, 2026-11-17, after the review fixes): 0 errors, 0 unconnected, schematic parity 0. See [DRC status](#drc-status). |
 | Routing input | `freerouting/WSNES_Proto.dsn` (inner planes only, see below) |
 | JLC assembly | `production/jlc/WSNES_BOM_JLC.csv` + `production/jlc/WSNES_CPL_JLC.csv` (only the parts JLC solders) |
 | Full BOM | `production/WSNES_Proto_BOM.csv` (the `Assembly` column says who solders what) |
@@ -17,7 +17,7 @@ v0.3 fits the standard SNES cartridge PCB outline: 112.2 × 66.7 mm plus the 11.
 
 ## DRC status
 
-0 errors, 0 unconnected items, schematic parity 0. Four warnings remain, all reviewed and harmless:
+0 errors, 0 unconnected items, schematic parity 0. Two warnings remain (four once the KiCad 10 libraries are installed), all reviewed and harmless:
 
 - **`silk_edge_clearance` ×2 (U21):** the ESP32 module outline overhangs the top edge by design, because the antenna sits at the edge. The fab clips silk there.
 - **`lib_footprint_mismatch` (J2, J5):** these were placed from the KiCad 9 library. The KiCad 10 copies have identical pad geometry but name the shield pads `SH` (this project uses `S1`/`11` to match its symbols), and J5's pads are roundrect. Do **not** "update from library": it would renumber the shield pads. ERC shows the matching `lib_symbol_mismatch` warnings.
@@ -29,12 +29,14 @@ Project rules in `WSNES_Proto.kicad_dru`:
 
 Two small `no_pour_sliver` keepouts on In2 (around x 158–166, y 152–155) remove thin, unconnected slivers of the +5V plane.
 
+Four `tab_no_pour` rule areas (F.Cu, In1, In2, B.Cu; x 119–181, y ≥ 156) keep every pour out of the gold-finger band and the bevelled tip. The GND fingers 5 and 36 are connected by their own tracks and a GND via just above the fingers, because the pour no longer reaches them. Cutting the pour also isolated the small F.Cu GND patch that feeds U5 pin 10, so a GND via at (140.64, 150.2) ties that patch to the In1 plane.
+
 ## Who solders what
 
 | You (`HAND`) | JLC (`JLC`) |
 |---|---|
 | U21 ESP32-S3-WROOM-1-N16R8. Solder the castellated edge pads; the centre GND pad is optional, since pins 1 and 40 are GND too. | All 74xx logic (TSSOP), both SRAMs (SOP-32), regulator, diodes, FETs |
-| U15 PIC12F629 (DIP-8), flashed with the SuperCIC key firmware, ideally beforehand | microSD socket, USB-C, BOOT/RESET buttons, LEDs, all R/C (0603/0805/1206) |
+| U15 PIC12F629 (DIP-8), flashed with the SuperCIC key firmware, ideally beforehand | microSD socket, USB-C with U23 USB ESD protection, BOOT/RESET buttons, LEDs, all R/C (0603/0805/1206) |
 | BT1 CR2032 holder (THT) | |
 | J3 ICSP header: optional, only for flashing the PIC in place | |
 
@@ -89,7 +91,7 @@ The new `.dsn` contains only the inner planes. GND, +5V and +3V3 just need a via
    - gold fingers with **45° bevel**
    - assembly: top side, using the two files in `production/jlc/`
 
-The `LCSC Part #` column in the JLC BOM is still empty. JLC's BOM tool matches by value, footprint and MPN; check each match, and check part rotations in their placement preview.
+The JLC BOM has a verified `LCSC Part #` on 26 of its 35 lines (see [Before ordering](#before-ordering) for the 9 without). Check part rotations in JLC's placement preview; SOT-23 / SOT-23-5 / SOT-23-6 parts often need 180°.
 
 ## Save RAM (unchanged from v0.2)
 
@@ -102,9 +104,27 @@ The ESP copies the save to `<game>.srm` on SD when you return to the menu or pre
 
 ## Before ordering
 
+The production review of 2026-11-17 ([`../docs/reviews/2026-11-17_production-review.md`](../docs/reviews/2026-11-17_production-review.md)) found one blocker and five checks. Status after the same-day fixes:
+
+- **Tab copper: fixed and verified.** The zones are refilled and the KiCad 10 DRC is clean. Measured on the refilled board, no copper is left between the fingers or within 1 mm of the bevelled tip, on any layer. See [DRC status](#drc-status).
+- **USB ESD: added.** U23 USBLC6-2SC6 sits next to J5 and is routed.
+- **LCSC part numbers: 26 of 35 lines filled.** These 9 ICs have no JLC listing in their family and package, so order them through JLC Global Sourcing, consign them, or hand-solder them:
+  - U1 AS6C4008-55SIN and U16 AS6C1008-55SIN (SOP-32)
+  - U13 74HCT165PW, U14 CD74HC4050PWR, U17 74HCT138PW, U8 74HCT157PW (TSSOP-16)
+  - U2–U4 74AHCT541PW, U5 74AHCT245PW (TSSOP-20)
+  - U7 74HCT32PW (TSSOP-14)
+
+  HCT drop-ins exist for the '541 (SN74HCT541PWR, C436096) and the '245 (74HCT245PW, C52140501), but they are slower than AHCT.
+- **Still open, bench checks:**
+  - Edge pinout: check continuity against an original cart. The finger at x = 177.5 (pin 5/36) must be GND on the same face.
+  - Console /RESET driver: Q1 pulls pin 26 low by default. Measure whether the console drives that line push-pull before relying on it.
+- **Gerbers:** a test export from KiCad 10.0.8 passed the gerber check (all layers present and aligned, 112.3 × 77.9 mm, 437 vias, one 0.15 mm drill). Export the final set for the order.
+
+Notes from before the review:
+
 - **Fine via:** the one 0.3/0.15 mm GND via (see [DRC status](#drc-status)) needs the fab's multilayer small-via option. If you want to avoid it, re-route SD7's branch under U12 so pin 8 can reach a normal via.
 - **Inner layers carry signals:** freerouting also used In1 (GND) and In2 (+5V/+3V3) for about 1.7 m + 2.2 m of signal track. The planes are still each one connected region, but they are cut up. That's fine at SNES bus speeds; keep an eye on the ESP/RF area if you re-route.
-- **MCP100 SOT-23 pinout:** the footprint assumes 1 = RST, 2 = VDD, 3 = VSS. Check it against the Microchip datasheet.
+- **MCP100 SOT-23 pinout:** the footprint uses 1 = RST, 2 = VDD, 3 = VSS. This was checked against Microchip DS11187F (p.1 package drawing, p.9 pin numbering) in the 2026-11-17 review, and it is correct.
 - **CR2032 holder:** `+` is the square pad. Check its height against your housing.
 - **SNES 5 V budget:** ESP32 WiFi peaks reach about 350–500 mA. Lowering the TX power helps if the console struggles.
 - **Timing:** SlowROM games have margin. FastROM games are marginal with HCT glue; AHCT versions of the glue chips would help.
