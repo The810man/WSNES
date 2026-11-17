@@ -1,4 +1,4 @@
-# WSNES: WiFi SNES flashcart
+# WSNES „SNES-LoROM-Flashcart mit WLAN-Upload für Homebrew und Entwicklung auf echter Hardware.“
 
 AI NOTICE: Hey so i use claude code for making my commits cleaner sometimes, also for release taggin. Code, pcb and CAD is hand made. No generative ai in use, only assistive agentic workflows for documentation and versioning.
 
