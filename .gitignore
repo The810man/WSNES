@@ -22,3 +22,8 @@ __pycache__/
 
 # KiCad local history (its own git repo inside pcb/)
 .history/
+
+# Design-review tooling (kicad-happy)
+# Datasheet PDFs are third-party content and are fetched locally on demand.
+# Analyzer output in analysis/ is filtered by analysis/.gitignore.
+pcb/datasheets/

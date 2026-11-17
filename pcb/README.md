@@ -102,9 +102,19 @@ The ESP copies the save to `<game>.srm` on SD when you return to the menu or pre
 
 ## Before ordering
 
+The production review of 2026-11-17 ([`../docs/reviews/2026-11-17_production-review.md`](../docs/reviews/2026-11-17_production-review.md)) found one blocker and five checks to do before ordering:
+
+- **Blocker: gold-finger tab copper.** The GND pours and the In1/In2 planes fill the contact tab, including between the fingers and along the bevelled tip. Add a no-pour rule area on all 4 layers over the tab (x 120–180, y ≥ 154), refill the zones, and re-run DRC.
+- **Edge pinout on real hardware:** check continuity against an original cart. In particular, the finger at x = 177.5 (pin 5/36) must be GND on the same face.
+- **Console /RESET driver:** Q1 pulls pin 26 low by default. Measure whether the console drives that line push-pull before relying on it.
+- **LCSC part numbers:** fill in the `LCSC Part #` column in `production/jlc/WSNES_BOM_JLC.csv` and confirm stock for the SRAMs, the 4050 and the connectors.
+- **Gerbers:** export the gerbers and drill files from KiCad 10 after the fix.
+
+Notes from before the review:
+
 - **Fine via:** the one 0.3/0.15 mm GND via (see [DRC status](#drc-status)) needs the fab's multilayer small-via option. If you want to avoid it, re-route SD7's branch under U12 so pin 8 can reach a normal via.
 - **Inner layers carry signals:** freerouting also used In1 (GND) and In2 (+5V/+3V3) for about 1.7 m + 2.2 m of signal track. The planes are still each one connected region, but they are cut up. That's fine at SNES bus speeds; keep an eye on the ESP/RF area if you re-route.
-- **MCP100 SOT-23 pinout:** the footprint assumes 1 = RST, 2 = VDD, 3 = VSS. Check it against the Microchip datasheet.
+- **MCP100 SOT-23 pinout:** the footprint uses 1 = RST, 2 = VDD, 3 = VSS. This was checked against Microchip DS11187F (p.1 package drawing, p.9 pin numbering) in the 2026-11-17 review, and it is correct.
 - **CR2032 holder:** `+` is the square pad. Check its height against your housing.
 - **SNES 5 V budget:** ESP32 WiFi peaks reach about 350–500 mA. Lowering the TX power helps if the console struggles.
 - **Timing:** SlowROM games have margin. FastROM games are marginal with HCT glue; AHCT versions of the glue chips would help.
