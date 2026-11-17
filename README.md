@@ -1,5 +1,7 @@
 # WSNES: WiFi SNES flashcart
 
+AI NOTICE: Hey so i use claude code for making my commits cleaner sometimes, also for release taggin. Code, pcb and CAD is hand made. No generative ai in use, only assistive agentic workflows for documentation and versioning.
+
 WSNES is a SNES flash cartridge built around an **ESP32-S3** and parallel SRAM:
 
 - The ESP loads a game from **microSD**, or one uploaded over **WiFi**, into SRAM.
