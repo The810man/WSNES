@@ -21,8 +21,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sexp import find, find1, parse  # noqa: E402
 
 PROJ = 'WSNES_Proto'
-# Sourcing notes (checked 2026-11-17). Update when stock changes.
+# Sourcing notes (checked 2026-11-17, re-checked 2026-11-18). Update when stock changes.
 NOTES = {
+    'C2953576': 'replaces the out-of-stock AS6C4008-55SIN (C1350086). Same 450-mil SOIC-32 land pattern, JEDEC pinout, '
+                '4.5-5.5 V, 55 ns. Only 5 in stock at LCSC on 2026-11-18: order early, or buy and hand-solder it',
+    'C10910': 'replaces the out-of-stock 74AHCT245PW,118 (C173388); same TSSOP-20 pinout',
+    'C3304572': 'replaces the out-of-stock 74HCT165PW,118 (C547409); same TSSOP-16 pinout. '
+                'Must stay HCT (CP and /PL are 3.3 V signals)',
     'C1350086': 'not stocked at LCSC on 2026-11-17: JLC parts pre-order / Global Sourcing, or hand-solder (SOP-32)',
     'C1351203': 'not stocked at LCSC on 2026-11-17: JLC parts pre-order / Global Sourcing, or hand-solder (SOP-32). '
                 'Keep a 2.7-5.5 V part: it runs from VSAVE behind the BAT54C',
@@ -59,9 +64,13 @@ def ranges(refs):
     return ','.join(g[0] if len(g) == 1 else (','.join(g) if len(g) == 2 else '%s-%s' % (g[0], g[-1])) for g in out)
 
 
-def schematic_parts(path):
+def schematic_parts(path, parts=None):
+    """All symbols of the (hierarchical) schematic: the root file plus every sub-sheet it references."""
     root = parse(open(path, encoding='utf-8').read())
-    parts = OrderedDict()
+    parts = OrderedDict() if parts is None else parts
+    for sh in find(root, 'sheet'):
+        sub = next(str(p[2]) for p in find(sh, 'property') if str(p[1]) == 'Sheetfile')
+        schematic_parts(os.path.join(os.path.dirname(path), sub), parts)
     for s in find(root, 'symbol'):
         if not find1(s, 'lib_id'):
             continue

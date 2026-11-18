@@ -7,11 +7,33 @@ All notable changes to WSNES are listed here. Hardware revisions (the `v0.3` on 
 Hardware v0.4, work in progress on branch `hw/v0.4`.
 
 ### Added
-- **R28 and R29, 33 Ω series resistors** (`C23140`, JLC basic) at the ESP end of SR_SCK and SR_LATCH. These are the two fast multi-drop lines: SR_SCK drives 5 loads over about 96 mm, SR_LATCH 4 loads over about 81 mm. About 25 Ω of GPIO drive plus 33 Ω roughly matches the trace impedance, which damps the ringing that could double-clock the '595/'165.
+- **R28 and R29, 33 Ω series resistors** (`C23140`, JLC basic) at the ESP end of SR_SCK and SR_LATCH. These are the two fast multi-drop lines: SR_SCK drives 5 loads over about 96 mm, SR_LATCH 4 loads over about 81 mm. About 25 Ω of GPIO drive plus 33 Ω roughly matches the trace impedance, which damps the ringing that could double-clock the '595/'165. They are now also on the board (they were only in the schematic before).
+- **`tools/board_v04.py`**: the one-shot board update for v0.4 (rip-up, re-link, two-sided placement, power fan-out). See "Board" below.
+- **Routing net classes with ratsnest colours** (generated into `WSNES_Proto.kicad_pro`): Power (red), USB pair (purple), Clock (orange), AddrBus (blue), DataBus (green), Default.
 
 ### Changed
-- **Schematic revision 0.4.** The title block, the title note and the GPIO map mention R28/R29.
-- **`gen_project.py`** takes an optional `datasheet=` per part, so U16 keeps its CY62128E datasheet link when the schematic is regenerated.
+- **Parts, after a stock check on 2026-11-18** (LCSC catalogue, which feeds JLC assembly):
+  - **U1: AS6C4008-55SIN → CY62148ELL-55SXI** (`C2953576`). The AS6C4008 is at 0, including the reel version. The CY62148E is 512K × 8, 4.5–5.5 V and 55 ns, with the same JEDEC pinout and the same 450-mil SOIC-32 land pattern as U16. Only 5 were in stock, so order early or hand-solder it.
+  - **U5: 74AHCT245PW,118 → TI SN74AHCT245PWR** (`C10910`), same TSSOP-20 pinout. The Nexperia part went to 0.
+  - **U13: 74HCT165PW,118 → TI SN74HCT165PWR** (`C3304572`), same TSSOP-16 pinout, still HCT.
+  - Every other part is in stock. Low but enough for a prototype: U21 ESP32-S3 (11), U15 PIC12F629 (12), U16 CY62128E (63).
+- **Schematic split into 9 sheets** (root overview + `edge_cic`, `snes_buffers`, `rom_glue`, `esp_serial`, `level_reset`, `esp32`, `microsd`, `power_usb`, `save_ram`):
+  - Every 100 nF decoupling cap is on the sheet of the IC it decouples.
+  - Nets that cross sheets are global labels, so their names stay the same (`SA0`, `BUS_ESP`, ...). Nets used on one sheet only are local (`/Save_RAM/VBAT_R`).
+  - `gen_project.py` lays the sheets out by itself (column packer from the real symbol extents), picks the paper size per sheet, and writes power-symbol names horizontally on horizontal pins.
+  - `gen_project.py` now **merges** into `WSNES_Proto.kicad_pro` instead of overwriting it, so board settings made in KiCad (zone defaults, ERC map, ...) survive a regeneration.
+  - ERC: 0 errors (2 known `lib_symbol_mismatch` warnings for J2/J5). Netlist check: 600 pins, 0 errors.
+- **Board:**
+  - **All routing removed** for a clean re-route. Zones, rule areas and the tab keep-outs stay.
+  - **Footprints are linked to their symbols by path** (`/sheet/symbol`). Before, the board had no paths and parity only worked through the reference fallback.
+  - **Two-sided placement.** On B.Cu: 18 decoupling caps (each under its IC, tied to the IC's supply via), the control-line pull-ups and series resistors (R1, R3, R6–R16, R25, R26, R28, R29, C22), and U2. U2 is the A0–A7 buffer, and all eight of its inputs come from the B.Cu fingers 10–17. ICs, connectors, LEDs, buttons, bulk caps and the THT parts stay on top. Nothing is placed on the B.Silkscreen artwork. **JLC needs two-sided (Standard) PCBA for this.**
+  - **Power is pre-routed into the planes:** every SMD pad on GND / +5V / +3V3 has a short stub and a 0.6/0.3 via into its plane, so the ratsnest shows only real work.
+  - **In1 and In2 are "power" layers** and a DRC rule forbids tracks on inner layers. In v0.3, freerouting had put 3.9 m of signal on the planes.
+  - **In2 split moved:** +5V now reaches up under the SRAMs (U1 VCC, D4, U20 were over the +3V3 region). +3V3 keeps the USB/LDO/microSD band and the ESP column.
+  - Back silkscreen says v0.4.
+- **`WSNES_Proto.kicad_dru`:** no tracks on inner layers, a minimum of 0.3 mm for power tracks, USB diff-pair gap/skew, a 0.45/0.2 via floor. The single-via exception for the old U12 pocket is gone.
+- **`export_bom.py`** reads every sheet of the hierarchical schematic. **`export_cheap.py`** no longer leaves off U13 (back in stock as the TI part) but still leaves off U1 (low stock). Its hand-assembly list is now `WSNES_HandAssembly.csv` (was `WSNES_SelfBuy.csv`).
+- **Docs:** written in neutral project voice throughout (no instructions addressed to one builder).
 
 ## [0.3.2] - 2026-11-17
 
@@ -30,7 +52,7 @@ First release with a final gerber package. It includes the fixes from the 2026-1
   - JLC leaves off U1 and U13 (out of stock) and SW1, SW2 and U23 (optional).
   - D3 and D7 become the red basic LED `C2286`, the same part as D2.
   - Extended part types drop from 21 to 15.
-  - `WSNES_SelfBuy.csv` lists what you buy and solder yourself, with quantities for the 2 boards JLC assembles.
+  - `WSNES_SelfBuy.csv` (renamed to `WSNES_HandAssembly.csv` in v0.4) lists the parts sourced separately and hand-soldered, with quantities for the 2 boards JLC assembles.
 - **Board artwork** on the silkscreen: logo, "WSNES" and "810-Studios.com".
 - **U23 USBLC6-2SC6 USB ESD protection** at J5 (D+, D−, VBUS):
   - Added in `pcb/tools/design.py`, then regenerated the schematic and `intended_pins.json` (ERC 0/0, netlist check passes on 596 pins).
@@ -49,7 +71,7 @@ First release with a final gerber package. It includes the fixes from the 2026-1
 - **`.gitignore`:** FreeCAD backups and loose gerber exports in `pcb/` are no longer tracked.
 
 ### Known issues
-- **U1 AS6C4008-55SIN and U13 74HCT165PW are out of stock** at LCSC and JLC (2026-11-17). Use Global Sourcing, or buy them yourself and hand-solder them.
+- **U1 AS6C4008-55SIN and U13 74HCT165PW are out of stock** at LCSC and JLC (2026-11-17). Use Global Sourcing, or source them separately and hand-solder them.
 - **Signal integrity, planned for hardware v0.4:**
   - The In1 GND plane carries 1.7 m of signal routing and is sliced under the bus logic.
   - USB D+/D− are not routed as a pair. That is uncritical at Full Speed, but untidy.

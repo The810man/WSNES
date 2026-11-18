@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Copyright 2026 The810man
-"""WSNES cart v0.3 (mixed SMD/THT, fits the standard SNES PCB outline) — single source of truth.
+"""WSNES cart v0.4 (mixed SMD/THT, fits the standard SNES PCB outline) — single source of truth.
 
 Every part lists its connections as {pin_number: net}. Special nets:
   '+5V', '+3V3', 'GND'  -> power symbols
@@ -8,7 +8,7 @@ Every part lists its connections as {pin_number: net}. Special nets:
 Everything else becomes a local net label.
 
 asm='JLC'  -> assembled by JLCPCB (SMD)
-asm='HAND' -> ordered and soldered by you (ESP module, PIC, battery holder, optional ICSP header)
+asm='HAND' -> sourced separately and hand-soldered (ESP module, PIC, battery holder, optional ICSP header)
 """
 
 import os
@@ -86,16 +86,19 @@ part('U4', '74xx', '74HCT541', '74AHCT541', FP_TSSOP20, (157.48, 177.8),
      {**OE541, **mapn(IN541, SNES_A[17:20] + ['GND'] * 5), **mapn(OUT541, SA[16:19] + [None] * 5)}, mpn='74AHCT541PW')
 part('U5', '74xx', '74HC245', '74AHCT245', FP_TSSOP20, (157.48, 236.22),
      {1: 'SNES_RD_N', 19: 'DBUF_OE_N', 20: '+5V', 10: 'GND',
-      **mapn(IN541, SNES_D), **mapn(OUT541, SD)}, mpn='74AHCT245PW')
+      **mapn(IN541, SNES_D), **mapn(OUT541, SD)}, mpn='SN74AHCT245PWR')
 
 # ---------------------------------------------------------------- ROM SRAM (game image)
 sram_addr = {12: 'SA0', 11: 'SA1', 10: 'SA2', 9: 'SA3', 8: 'SA4', 7: 'SA5', 6: 'SA6', 5: 'SA7',
              27: 'SA8', 26: 'SA9', 23: 'SA10', 25: 'SA11', 4: 'SA12', 28: 'SA13', 3: 'SA14',
              31: 'SA15', 2: 'SA16', 30: 'SA17', 1: 'SA18'}
 sram_data = {13: 'SD0', 14: 'SD1', 15: 'SD2', 17: 'SD3', 18: 'SD4', 19: 'SD5', 20: 'SD6', 21: 'SD7'}
-part('U1', 'Memory_RAM', 'AS6C4008-55PCN', 'AS6C4008-55SIN (ROM, 512K x 8)', FP_SOP32,
+# v0.4: AS6C4008-55SIN (out of stock) -> CY62148ELL-55SXI: 512K x 8, 4.5-5.5 V, 55 ns (same speed bin), 450-mil SOIC-32
+# (Cypress 51-85081, same land pattern as U16), single /CE on pin 22, /OE 24, /WE 29, VCC 32, VSS 16 (JEDEC).
+part('U1', 'Memory_RAM', 'AS6C4008-55PCN', 'CY62148ELL-55SXI (ROM, 512K x 8)', FP_SOP32,
      (256.54, 86.36), {**sram_addr, **sram_data, 22: 'SRAM_CE_N', 24: 'SRAM_OE_N', 29: 'SRAM_WE_N',
-                       32: '+5V', 16: 'GND'}, mpn='AS6C4008-55SIN')
+                       32: '+5V', 16: 'GND'}, mpn='CY62148ELL-55SXI',
+     datasheet='https://datasheet.lcsc.com/datasheet/pdf/51aeef03b794f8ed6a09b3f6c1179ead.pdf?productCode=C2953576')
 
 # ---------------------------------------------------------------- glue logic (5 V, HCT inputs accept 3.3 V)
 # U8 is AHCT (pin-compatible): it sits in the /ROMSEL -> SRAM /CE path and saves ~24 ns worst case
@@ -138,7 +141,7 @@ part('U12', '74xx', '74HCT595', '74HCT595', FP_TSSOP16, (360.68, 200.66),
      {**SR_COMMON, 14: 'SR_CH3', 13: 'DOUT_OE_G_N', 9: None, **mapn(Q595, SD)}, mpn='74HCT595PW')
 part('U13', '74xx', '74HC165', '74HCT165', FP_TSSOP16, (360.68, 248.92),
      {1: 'RD_LOAD_N', 2: 'SR_SCK', 15: 'GND', 10: 'GND', 16: '+5V', 8: 'GND',
-      9: 'RB_Q7', 7: None, **mapn([11, 12, 13, 14, 3, 4, 5, 6], SD)}, mpn='74HCT165PW')
+      9: 'RB_Q7', 7: None, **mapn([11, 12, 13, 14, 3, 4, 5, 6], SD)}, mpn='SN74HCT165PWR')
 
 # ---------------------------------------------------------------- 5 V -> 3.3 V (CD74HC4050 on 3V3, inputs 5 V tolerant)
 part('U14', '4xxx', '4050', 'CD74HC4050', FP_TSSOP16, None,
@@ -266,21 +269,22 @@ for i, ic in enumerate(dec):
     part('C%d' % (i + 3), 'Device', 'C', '100nF', FP_C, (139.7 + i * 15.24, 317.5), {1: RAIL.get(ic, '+5V'), 2: 'GND'},
          note='decouples ' + ic)
 
-# ---------------------------------------------------------------- sourcing (checked 2026-11-17)
+# ---------------------------------------------------------------- sourcing (checked 2026-11-17, re-checked 2026-11-18)
 # (manufacturer, MPN, LCSC part number). LCSC numbers were looked up and their package checked against
 # the LCSC catalogue; pinouts of every substitute were checked against the maker's datasheet.
-# Not stocked at LCSC on 2026-11-17 (use JLC parts pre-order / Global Sourcing, or hand-solder):
-#   U1 AS6C4008-55SIN, U13 74HCT165PW,118.
+# 2026-11-18 stock check: AS6C4008-55SIN (C1350086, also the TR reel C6507017), 74AHCT245PW,118 (C173388) and
+# 74HCT165PW,118 (C547409) are all at 0. Replaced by pin-compatible, in-stock parts (U1, U5, U13 below).
+# U1 CY62148ELL-55SXI had only 5 pcs at LCSC on 2026-11-18: order it early, or hand-solder U1 if it runs out.
 # U16 moved on 2026-11-17 from AS6C1008-55SIN (C1351203, 2.7-5.5 V, out of stock) to the in-stock CY62128ELL-45SXI:
 # same JEDEC pinout and 450-mil SOIC-32, but 4.5-5.5 V. VSAVE sits one BAT54C drop below +5V, so it is only in
 # spec while the console delivers about 4.9 V or more. Go back to the AS6C1008 when it is stocked again.
 SOURCING = {
-    'U1': ('Alliance Memory', 'AS6C4008-55SIN', 'C1350086'),
+    'U1': ('Infineon (Cypress)', 'CY62148ELL-55SXI', 'C2953576'),   # was AS6C4008-55SIN (C1350086, out of stock)
     'U16': ('Infineon (Cypress)', 'CY62128ELL-45SXI', 'C2953613'),   # 4.5-5.5 V, see note above
     'U2': ('Nexperia', '74AHCT541PW,118', 'C84548'),
     'U3': ('Nexperia', '74AHCT541PW,118', 'C84548'),
     'U4': ('Nexperia', '74AHCT541PW,118', 'C84548'),
-    'U5': ('Nexperia', '74AHCT245PW,118', 'C173388'),
+    'U5': ('Texas Instruments', 'SN74AHCT245PWR', 'C10910'),        # was 74AHCT245PW,118 (C173388, out of stock)
     'U6': ('Nexperia', '74HCT00PW,118', 'C8206'),
     'U7': ('Texas Instruments', 'SN74HCT32PWR', 'C132266'),
     'U8': ('Texas Instruments', 'SN74AHCT157PWR', 'C2674471'),
@@ -288,7 +292,7 @@ SOURCING = {
     'U10': ('MDD', '74HCT595PW', 'C54411086'),
     'U11': ('MDD', '74HCT595PW', 'C54411086'),
     'U12': ('MDD', '74HCT595PW', 'C54411086'),
-    'U13': ('Nexperia', '74HCT165PW,118', 'C547409'),          # must stay HCT: CP and /PL are 3.3 V
+    'U13': ('Texas Instruments', 'SN74HCT165PWR', 'C3304572'),  # must stay HCT: CP and /PL are 3.3 V. Was 74HCT165PW,118
     'U14': ('Texas Instruments', 'CD74HC4050PWR', 'C352825'),
     'U15': ('Microchip', 'PIC12F629-I/P', 'C9785'),
     'U17': ('Texas Instruments', 'SN74HCT138PWR', 'C8115'),
@@ -332,5 +336,40 @@ for _p in parts:
     elif _p['asm'] != 'PCB':
         raise SystemExit('no sourcing entry for ' + _p['ref'])
 
-# PWR_FLAG for nets fed only through passive pins
-pwr_flags = {'ESP_5V': (63.5, 304.8), 'VSAVE': (127.0, 467.36), 'VBUS': (657.86, 254.0)}
+# PWR_FLAG for nets fed only through passive pins: net -> sheet it is drawn on
+pwr_flags = {'ESP_5V': 'power', 'VSAVE': 'save', 'VBUS': 'power'}
+
+# ---------------------------------------------------------------- schematic sheets (v0.4: hierarchical)
+# (key, sheet name, file stem, title, refs in drawing order). Every 100 nF decoupling cap goes on the sheet of the
+# IC it decouples. A net used on one sheet only becomes a local label there; a net that crosses sheets becomes a
+# global label, so its name (and its PCB net name) stays the same everywhere.
+SHEETS = [
+    ('edge', 'Edge_CIC', 'edge_cic', 'Cartridge edge + SuperCIC key',
+     ['P1', 'U15', 'J3', 'R2', 'R4', 'D3']),
+    ('buffers', 'SNES_Buffers', 'snes_buffers', 'SNES-side bus buffers (5 V, active while BUS_ESP = 0)',
+     ['U2', 'U3', 'U4', 'U5']),
+    ('rom', 'ROM_Glue', 'rom_glue', 'ROM SRAM + bus-ownership glue',
+     ['U1', 'U8', 'U6', 'U7']),
+    ('serial', 'ESP_Serial', 'esp_serial', 'ESP-side serial address/data access (5 V HCT shift registers)',
+     ['U9', 'U10', 'U11', 'U12', 'U13', 'R8']),
+    ('level', 'Level_Reset', 'level_reset', '5 V -> 3.3 V, SNES reset driver, control-line pull-ups',
+     ['U14', 'R3', 'Q1', 'R1', 'R10', 'R11', 'R12', 'R13', 'R14', 'R15', 'R16']),
+    ('esp', 'ESP32', 'esp32', 'ESP32-S3-WROOM-1 module (hand-soldered) + boot/reset + series resistors',
+     ['U21', 'R25', 'C22', 'SW2', 'R26', 'SW1', 'R27', 'D7', 'R28', 'R29', 'C25']),
+    ('sd', 'microSD', 'microsd', 'microSD socket (SPI mode, 3.3 V)',
+     ['J2', 'R17', 'R18', 'R19', 'R20', 'R21', 'R22', 'C26']),
+    ('power', 'Power_USB', 'power_usb', 'Power: SNES 5 V, USB-C (ESD, CC), 3.3 V LDO',
+     ['D1', 'C1', 'C2', 'R5', 'D2', 'J5', 'R23', 'R24', 'U23', 'D6', 'U22', 'C23', 'C24']),
+    ('save', 'Save_RAM', 'save_ram', 'Battery-backed save RAM (LoROM $70-$7D:0000-7FFF)',
+     ['U16', 'U17', 'U18', 'U19', 'U20', 'R6', 'R7', 'D4', 'R9', 'BT1']),
+]
+SHEET_OF = {ref: key for key, _n, _f, _t, refs in SHEETS for ref in refs}
+for _p in parts:
+    if _p['ref'] not in SHEET_OF:
+        _ic = _p.get('note', '').replace('decouples ', '')
+        if _p.get('note', '').startswith('decouples ') and _ic in SHEET_OF:
+            SHEET_OF[_p['ref']] = SHEET_OF[_ic]
+            next(sh for sh in SHEETS if sh[0] == SHEET_OF[_ic])[4].append(_p['ref'])
+        else:
+            raise SystemExit('no sheet for ' + _p['ref'])
+    _p['sheet'] = SHEET_OF[_p['ref']]
