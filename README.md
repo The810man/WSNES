@@ -20,8 +20,8 @@ The board uses the standard SNES cartridge PCB outline, so it fits a custom PAL 
 | --- | --- |
 | Hardware v0.3 | Schematic done (ERC: 0 errors), all 90 parts placed, **fully routed, DRC clean** (KiCad 10.0.8: 0 errors, 0 unconnected, parity 0) |
 | Production review | [2026-11-17](docs/reviews/2026-11-17_production-review.md): the tab-copper blocker and the missing USB ESD are **fixed and verified**. Every JLC line has an LCSC number. U1 and U13 were out of stock on 2026-11-17, and two bench checks are still open. See [`pcb/README.md`](pcb/README.md#before-ordering). |
-| Production files | Gerbers in `pcb/production/jlc/`. JLC assembly as the full variant (`jlc/`) or the cheap prototype variant (`jlc-cheap/`, with a self-buy list) |
-| Hardware v0.4 | In progress: clean In1 GND plane, USB routed as a pair, series resistors on the shift-register clock and latch |
+| Production files | Gerbers in `pcb/production/jlc/`. JLC assembly as the full variant (`jlc/`) or the cheap prototype variant (`jlc-cheap/`, with a hand-assembly list) |
+| Hardware v0.4 | In progress on `hw/v0.4`: schematic split into 9 sheets, U1/U5/U13 replaced by in-stock parts, two-sided placement, power pre-routed into the planes, net classes for hand routing. **Signal routing is being redone by hand.** See [`pcb/README.md`](pcb/README.md#routing-v04). |
 | Housing | First draft: `cad/Cardridge.FCStd` (FreeCAD) |
 | Firmware | Not in this repo yet |
 
@@ -69,7 +69,7 @@ These projects were studied while designing WSNES. None of their files are inclu
 
 ## Licence
 
-WSNES is free for non-commercial use: you can build, modify and share it, but selling it needs my permission.
+WSNES is free for non-commercial use: it may be built, modified and shared, but selling it requires the author's permission.
 
 - Hardware and docs: [CC BY-NC-SA 4.0](LICENSES/CC-BY-NC-SA-4.0.txt)
 - Code: [PolyForm Noncommercial 1.0.0](LICENSES/PolyForm-Noncommercial-1.0.0.md)

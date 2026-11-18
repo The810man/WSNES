@@ -9,7 +9,9 @@ actual = {}
 nets = collections.defaultdict(set)
 # whitespace-tolerant: KiCad 9 writes each node on one line, KiCad 10 pretty-prints them
 for m in re.finditer(r'\(net\s+\(code\s+"\d+"\)\s+\(name\s+"([^"]*)"\)(.*?)(?=\(net\s+\(code|\Z)', s, re.S):
-    name = m.group(1).lstrip('/')
+    # hierarchical schematic: sheet-local nets are "/<Sheet>/<NET>", global ones "<NET>"; compare the bare name
+    # (gen_project.py only makes a net local when all its pins are on one sheet, so bare names stay unique)
+    name = m.group(1).rsplit('/', 1)[-1]
     for ref, pin in re.findall(r'\(node\s+\(ref\s+"([^"]+)"\)\s+\(pin\s+"([^"]+)"\)', m.group(2)):
         actual[(ref, pin)] = name
         nets[name].add((ref, pin))

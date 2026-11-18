@@ -5,7 +5,7 @@
 
 Usage: python3 gen_pcb.py <project_dir>
 Requires KiCad 9 python (pcbnew) and kicad-cli. Routing is NOT done here.
-WARNING: rebuilds the board from scratch - do not run once you have started routing.
+WARNING: rebuilds the board from scratch - do not run once routing has started.
 Also writes: freerouting/WSNES_Proto.dsn and production/jlc/ (BOM + CPL for the JLC-assembled parts).
 """
 import csv, math, os, re, subprocess, sys
@@ -306,7 +306,7 @@ def main(proj_dir):
         if not done:
             unplaced.append(ref)
 
-    # ---- reference texts: only on parts you solder yourself (JLC does not need silkscreen refs)
+    # ---- reference texts: only on hand-soldered parts (JLC does not need silkscreen refs)
     for ref, fp in fps.items():
         rr = fp.Reference()
         rr.SetTextSize(pcbnew.VECTOR2I(MM(0.9), MM(0.9))); rr.SetTextThickness(MM(0.15))

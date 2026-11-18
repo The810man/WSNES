@@ -27,17 +27,17 @@ Da der **ESP32-S3** wegen WLAN-Interrupts das ~120-ns-Bus-Timing des SNES nicht 
 
 ---
 
-## 2. KiCad-Vorlagen zum Mergen (Copy & Paste in dein Projekt)
+## 2. KiCad-Vorlagen zum Mergen (Copy & Paste ins Projekt)
 
-Lade diese drei Repositories herunter, um Schaltplan-Blöcke und Platinen-Umrisse direkt in dein eigenes KiCad-Projekt zu kopieren:
+Diese drei Repositories liefern Schaltplan-Blöcke und Platinen-Umrisse, die direkt ins KiCad-Projekt übernommen werden können:
 
 ### A. SNES-Platinenform, Edge-Connector & SuperCIC (Deine Hauptbasis)
 
 * **GitHub-Repo:** [MouseBiteLabs / Super-Nintendo-Cartridges](https://github.com)
 * **Konkrete Ordner/Dateien im Repo:**
   * `LoROM (No Save)/` → Öffne die `.kicad_sch` und `.kicad_pcb`.
-  * **Was du behältst:** Den äußeren Platinen-Umriss (*Edge.Cuts*), den 62-Pin-Modulstecker (*Cartridge Edge Connector*) sowie die Schaltung rund um den **ATtiny13A (`SuperCIC`)**.
-  * **Was du löschst:** Den Mask-ROM/TSOP-Footprint und die LoROM/HiROM-Jumper (diese ersetzt du durch deinen SRAM und die Bus-Switches).
+  * **Wird übernommen:** Den äußeren Platinen-Umriss (*Edge.Cuts*), den 62-Pin-Modulstecker (*Cartridge Edge Connector*) sowie die Schaltung rund um den **ATtiny13A (`SuperCIC`)**.
+  * **Entfällt:** Den Mask-ROM/TSOP-Footprint und die LoROM/HiROM-Jumper (ersetzt durch den SRAM und die Bus-Switches).
 
 ### B. Flashcart-Schaltplan-Referenz (SRAM + Level-Shifter + Adress-Logik)
 
@@ -46,7 +46,7 @@ Lade diese drei Repositories herunter, um Schaltplan-Blöcke und Platinen-Umriss
 * **GitHub-Repo 2:** [soniccd123 / SNES-FeRAM-Cart](https://github.com)
   * **Nutzen:** Sehr übersichtliches KiCad-Projekt für moderne 3,3V-Speicherchips auf einer SNES-Platine inklusive Pegelwandler-Beschaltung.
 
-### C. ESP32-S3 Schaltungs-Vorlage (Falls du später ohne DevKit baust)
+### C. ESP32-S3 Schaltungs-Vorlage (für einen späteren Aufbau ohne DevKit)
 
 * **GitHub-Repo:** [AMIFEX-IT / ESP32-S3-SMALL](https://github.com)
 * **Nutzen:** Enthält den fertigen Schaltplan-Block für `ESP32-S3-WROOM-1`, 3,3V-Spannungsregler, Pufferkondensatoren und `BOOT`/`RESET`-Taster. *(Für Prototyp v1 empfiehlt sich aber das aufsteckbare `ESP32-S3-DevKitC-1` über 2× 22-Pin Buchsenleisten).*

@@ -6,14 +6,14 @@ Usage (from pcb/):  python3 tools/export_cheap.py .
 Reads the schematic (parts, fields) and the routed board (positions), like export_bom.py, and writes
   production/jlc-cheap/WSNES_BOM_JLC_cheap.csv   upload to JLC as the BOM
   production/jlc-cheap/WSNES_CPL_JLC_cheap.csv   upload to JLC as the CPL
-  production/jlc-cheap/WSNES_SelfBuy.csv         everything you buy and solder yourself
+  production/jlc-cheap/WSNES_HandAssembly.csv     parts sourced separately and hand-soldered
 
 Compared with production/jlc/ this variant
-  - leaves off the parts that are out of stock (U1, U13) and the optional ones (SW1, SW2, U23),
+  - leaves off U1 (only 5 in stock at LCSC on 2026-11-18, so it is hand-soldered) and the optional parts (SW1, SW2, U23),
   - swaps the green and blue LEDs for the red JLC basic LED (same 0603 footprint, no feeder fee).
 Every part JLC still places sits on the same pads as before, so the gerbers do not change.
 
-Prices and stock: LCSC / jlcsearch, checked 2026-11-17. Update PRICES when you order.
+Prices and stock: LCSC, checked 2026-11-18. Update PRICES before ordering.
 """
 import csv
 import os
@@ -23,17 +23,16 @@ from collections import OrderedDict
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from export_bom import PROJ, board_positions, natkey, ranges, schematic_parts  # noqa: E402
 
-BOARDS = 2   # boards JLC assembles (JLC's minimum PCBA quantity); self-buy quantities are for this many
+BOARDS = 2   # boards JLC assembles (JLC's minimum PCBA quantity); hand-assembly quantities are for this many
 
 # Parts JLC leaves off in this variant: ref -> (required?, reason)
 DNP = {
-    'U1': (True, 'out of stock at LCSC and JLC on 2026-11-17'),
-    'U13': (True, 'out of stock at LCSC and JLC on 2026-11-17'),
+    'U1': (True, 'CY62148ELL-55SXI: only 5 in stock at LCSC on 2026-11-18, so a JLC order could stall on it'),
     'SW1': (False, 'BOOT is only a fallback: esptool puts the S3 into download mode over native USB'),
     'SW2': (False, 'RESET: unplugging the cart or USB resets the ESP too'),
     'U23': (False, 'USB ESD diode: D+/D- run as copper past it, so USB works without it'),
 }
-OPTIONAL_HAND = {'J3'}   # hand-soldered parts you can skip (ICSP header)
+OPTIONAL_HAND = {'J3'}   # optional hand-soldered parts (ICSP header)
 # Same-footprint swaps to JLC basic parts: ref -> (value, manufacturer, MPN, LCSC)
 SWAP = {
     'D3': ('LED red (CIC OK)', 'KENTO', 'KT-0603R', 'C2286'),   # was green KT-0603G (extended)
@@ -46,16 +45,14 @@ EXTENDED_FEE = 3.0   # USD per extended part type (JLC economic PCBA)
 
 # LCSC part -> (unit price USD at the order quantity, minimum order qty, LCSC stock, where / notes)
 PRICES = {
-    'C2913202': (5.40, 1, 9691, 'LCSC'),
-    'C1350086': (5.80, 1, 0, 'order MPN AS6C4008-55SIN from Mouser / DigiKey (price is the LCSC list price)'),
-    'C547409': (0.164, 5, 0, 'order MPN 74HCT165PW,118 (Nexperia) from Mouser / DigiKey (price is the LCSC list price). '
-                             'Must be HCT, because CP and /PL come from the ESP at 3.3 V'),
-    'C9785': (2.07, 1, 42, 'LCSC. Flash the SuperCIC key firmware before soldering (needs a PIC programmer, '
+    'C2913202': (5.40, 1, 11, 'LCSC (only 11 left on 2026-11-18; any ESP32-S3-WROOM-1 variant fits, see README)'),
+    'C2953576': (5.45, 1, 5, 'LCSC, or Mouser / DigiKey (MPN CY62148ELL-55SXI). Same SOIC-32 pads as U16'),
+    'C9785': (2.07, 1, 12, 'LCSC. Flash the SuperCIC key firmware before soldering (needs a PIC programmer, '
                            'e.g. a PICkit), or fit J3 and flash it in place'),
-    'C2979167': (0.40, 5, 2030, 'LCSC. Holder only: add one CR2032 cell per board (any shop)'),
+    'C2979167': (0.40, 5, 2025, 'LCSC. Holder only: add one CR2032 cell per board (any shop)'),
     'C2935976': (0.076, 10, 650, 'LCSC. Only needed to flash the PIC in place'),
-    'C221896': (0.59, 1, 626, 'LCSC'),
-    'C7519': (0.16, 5, 38345, 'LCSC'),
+    'C221896': (0.59, 1, 586, 'LCSC'),
+    'C7519': (0.16, 5, 34795, 'LCSC'),
 }
 
 
@@ -92,14 +89,14 @@ def main(proj_dir):
             x, y, rot, layer = pos[r]
             w.writerow([r, '%.3fmm' % x, '%.3fmm' % -y, layer, '%g' % rot])
 
-    # self-buy: the hand-soldered parts plus everything this variant leaves off
+    # hand assembly: the HAND parts plus everything this variant leaves off
     own = [r for r, p in parts.items() if p.get('Assembly') == 'HAND' or r in DNP]
     buy = OrderedDict()
     for r in sorted(own, key=natkey):
         p = parts[r]
         buy.setdefault(p.get('LCSC', ''), []).append(r)
     totals = {True: 0.0, False: 0.0}
-    with open(os.path.join(out, 'WSNES_SelfBuy.csv'), 'w', newline='') as f:
+    with open(os.path.join(out, 'WSNES_HandAssembly.csv'), 'w', newline='') as f:
         w = csv.writer(f, quoting=csv.QUOTE_ALL, lineterminator='\n')
         w.writerow(['Refs', 'Part', 'MPN', 'Manufacturer', 'LCSC', 'Need', 'Per board', 'Order qty (%d boards)' % BOARDS,
                     'Unit USD', 'Line USD', 'LCSC stock', 'Where / notes'])
@@ -119,7 +116,7 @@ def main(proj_dir):
 
     ext = sorted({lcsc for lcsc, _ in groups} - BASIC)
     print('cheap variant: JLC BOM lines %d (%d parts), extended types %d (~%.0f USD feeder fees), '
-          'self-buy %d lines: required ~%.2f USD, optional ~%.2f USD (LCSC prices, plus shipping and CR2032 cells)'
+          'hand-assembly %d lines: required ~%.2f USD, optional ~%.2f USD (LCSC prices, plus shipping and CR2032 cells)'
           % (len(groups), len(jlc), len(ext), len(ext) * EXTENDED_FEE, len(buy), totals[True], totals[False]))
 
 

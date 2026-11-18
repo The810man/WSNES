@@ -158,7 +158,7 @@ U20 MCP100-450 /RST ── R6 1k ── U16 CE2 (R7 100k pull-down): writes bloc
 
 GND (5/36) and +5V (27/58) sit at the same x on both faces, so swapping front and back would only swap signals. A left/right mirror, however, would put +5V on a GND contact.
 
-**Before ordering**, take an original cart and check continuity from its ROM GND pin to the finger that this board puts at x = 177.5 (pin 5/36), with the label side facing the same way as here. Also confirm the CIC data direction (pins 24/55 vs. PIC GP0/GP1) against the SuperCIC key firmware you will flash.
+**Before ordering**, take an original cart and check continuity from its ROM GND pin to the finger that this board puts at x = 177.5 (pin 5/36), with the label side facing the same way as here. Also confirm the CIC data direction (pins 24/55 vs. PIC GP0/GP1) against the SuperCIC key firmware that will be flashed.
 
 ## Deep Review
 
@@ -399,7 +399,7 @@ There are no exposed-pad parts apart from U21. U21's centre GND pad has 12 therm
 - **JLC BOM** (`production/jlc/WSNES_BOM_JLC.csv`): the `LCSC Part #` column is empty. Fill it in before ordering; JLC's auto-match by value is unreliable for X5R voltage ratings and LED colours.
 - **Datasheets:** synced through the no-key LCSC API, 15 of 24.
 - **Stock not confirmed** (the API search returned nothing even for the common 74HCT165): AS6C4008-55SIN, AS6C1008-55SIN, CD74HC4050PWR, DM3AT-SF-PEJM5, TYPE-C-31-M-12.
-- **If JLC can't source the SOP-32 SRAMs**, you can hand-solder them (1.27 mm pitch) or consign them.
+- **If JLC can't source the SOP-32 SRAMs**, they can be hand-soldered (1.27 mm pitch) or consigned.
 
 ### Component lifecycle
 
